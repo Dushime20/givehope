@@ -4,29 +4,7 @@ import { Link } from 'react-router-dom';
 const About = () => {
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="bg-gray-900 text-white">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <Link to="/" className="text-2xl font-bold">GiveHope</Link>
-            <button className="md:hidden">
-              <span className="sr-only">Menu</span>
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-            <div className="hidden md:flex space-x-6">
-              <Link to="/" className="hover:text-gray-300">Home</Link>
-              <Link to="/how-it-works" className="hover:text-gray-300">How It Works</Link>
-              <Link to="/donate" className="hover:text-gray-300">Donate</Link>
-              <Link to="/gallery" className="hover:text-gray-300">Gallery</Link>
-              <Link to="/blog" className="hover:text-gray-300">Blog</Link>
-              <Link to="/about" className="text-blue-400">About</Link>
-              <Link to="/contact" className="hover:text-gray-300">Contact</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+    
 
       {/* Hero Section */}
       <div className="relative bg-cover bg-center h-[400px]" style={{ backgroundImage: "url('images/bg_2.jpg')" }}>
