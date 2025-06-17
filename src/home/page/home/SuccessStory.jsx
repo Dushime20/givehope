@@ -4,7 +4,7 @@ const SuccessStory = () => {
   return (
     <div> {/* Success Story Section */}
       <div className="relative bg-cover bg-center py-20" style={{ backgroundImage: "url('images/bg_3.jpg')" }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-[#f2c44a] bg-opacity-50"></div>
         <div className="container mx-auto px-4 relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
