@@ -6,8 +6,9 @@ import Blog from './home/page/Blog'
 import BlogSingle from './home/page/Blog-single'
 import Contact from './home/page/Contact'
 import Donate from './home/page/Donate'
+import Videos from './home/page/Videos'
 import Gallery from './home/page/Gallery'
-import HowItWorks from './home/page/HowItWorks'
+import Projects from './home/page/Projects'
 import Footer from './home/layout/Footer'
 
 
@@ -23,8 +24,9 @@ function App() {
           <Route path="/blog-single" element={<BlogSingle />} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/donate" element={<Donate/>} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/how-it-works" element={<HowItWorks/>} />
+          <Route path="/videos" element={<Videos/>} />
+          <Route path="/gallery" element={<Gallery/>} />
+          <Route path="/projects" element={<Projects/>} />
         </Routes>
         <Footer/>
       </div>

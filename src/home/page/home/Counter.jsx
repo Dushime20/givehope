@@ -20,11 +20,9 @@ const Counter = () => {
             <div>
               <h2 className="text-4xl font-bold mb-6">Who Are We?</h2>
               <p className="text-lg text-gray-600 mb-4">
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+                Rwanda National Association of Deaf Women (RNADW) is an Organization of People with Disabilities (OPD) which is fully registered with Rwanda Governance Board (RGB). Founded in 2005 by a group of Deaf women human rights activist to advocate for the rights of women and girls, after realizing the gaps in service provision, insufficient advocacy efforts to fight for her rights and social integrations in the entire Rwandan community as whole.
               </p>
-              <p className="text-gray-600 mb-6">
-                A small river named Duden flows by their place and supplies it with the necessary regelialia.
-              </p>
+             
               <Link to="/about" className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
                 Learn More
               </Link>

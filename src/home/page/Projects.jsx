@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const HowItWorks = () => {
+const Projects = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -200,4 +200,4 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks;
+export default Projects;

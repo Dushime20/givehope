@@ -7,8 +7,9 @@ const Navbar = () => {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/how-it-works', label: 'How It Works' },
+    { path: '/projects', label: 'Projects' },
     { path: '/donate', label: 'Donate' },
+    { path: '/videos', label: 'Video' },
     { path: '/gallery', label: 'Gallery' },
     { path: '/blog', label: 'Blog' },
     { path: '/about', label: 'About' },
@@ -21,7 +22,8 @@ const Navbar = () => {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-semibold tracking-widest text-black uppercase">
-              GIVEHOPE
+              <img src="images/Picture1.png" alt="logo"
+              className="h-10 w-auto object-contain"/>
             </Link>
           </div>
           <div className="hidden md:flex space-x-8">
