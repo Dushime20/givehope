@@ -49,7 +49,7 @@ const handleSubmit = (e) => {
                 <div className="flex space-x-4">
                   <Button className="bg-blue-600 hover:bg-blue-700 text-white"><Link to={'/projects-details'}>Learn More</Link></Button>
                   <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                    Donate
+                    <Link to={"/donate-page"}>Donate</Link>
                   </Button>
                 </div>
               </div>

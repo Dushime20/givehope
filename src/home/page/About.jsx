@@ -1,163 +1,189 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Features from './home/Features';
 
 const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative bg-cover bg-center h-[400px]" style={{ backgroundImage: "url('images/bg_2.jpg')" }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50">
-          <div className="container mx-auto px-4 h-full flex items-center justify-center">
-            <div className="text-center text-white">
-              <h2 className="text-4xl font-bold">About The Organization</h2>
+      <div className="relative w-full h-[400px] mt-[80px]">
+        <div
+          className="absolute inset-0 bg-center bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/4.jpg')",
+          }}
+        >
+          <div className="w-full h-full  flex items-center justify-center">
+            <div className="text-center text-white px-4">
+              <h2 className="text-4xl font-bold">About The RNADW "UMUCYO"</h2>
             </div>
           </div>
         </div>
       </div>
 
       {/* History Section */}
-      <div className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="mb-12">
-            <h1 className="text-3xl font-bold mb-8">Our History</h1>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <p className="text-lg text-gray-700 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus officiis facere nisi et, ut adipisci a quis quisquam vitae doloremque tempora repellat quae accusantium atque eum voluptatibus aperiam cumque.
-                </p>
-                <p className="text-gray-700">
-                  Quia ratione, eum harum ab similique mollitia, nisi itaque vel voluptas ipsam dolore perferendis. Deleniti voluptatum error possimus ipsum, sed, obcaecati. Sit unde quia eum repudiandae molestiae reprehenderit harum nesciunt.
-                </p>
-              </div>
-              <div>
-                <p className="text-gray-700 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus officiis facere nisi et, ut adipisci a quis quisquam vitae doloremque tempora repellat quae accusantium atque eum voluptatibus aperiam cumque.
-                </p>
-                <p className="text-gray-700">
-                  Quia ratione, eum harum ab similique mollitia, nisi itaque vel voluptas ipsam dolore perferendis. Deleniti voluptatum error possimus ipsum, sed, obcaecati. Sit unde quia eum repudiandae molestiae reprehenderit harum nesciunt.
-                </p>
-              </div>
-            </div>
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-yellow-600 font-semibold uppercase tracking-wide">Our Journey</span>
+            <div className="w-16 h-1 bg-yellow-600 mx-auto mt-2 mb-4 rounded"></div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Our History</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              The story of how RNADW was founded and our journey of growth and impact.
+            </p>
           </div>
 
-          {/* Leadership Section */}
-          <div className="mt-20">
-            <h2 className="text-3xl font-bold text-center mb-12">Leadership</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Leadership Cards */}
-              <div className="text-center">
-                <div className="mb-4">
-                  <img src="images/person_1.jpg" alt="Greeg Graham" className="w-32 h-32 rounded-full mx-auto" />
-                  <h3 className="text-xl font-bold mt-4">Greeg Graham</h3>
-                  <p className="text-gray-600">CEO</p>
-                </div>
-                <p className="text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta.
+          <div className="space-y-20">
+            {/* 2005 - Beginning */}
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">The Beginning (2005)</h3>
+                <p className="text-gray-700 leading-relaxed text-base">
+                  RNADW was founded in 2005 by a group of deaf women human rights activists who recognized the need
+                  for an organization specifically focused on the unique challenges faced by deaf women and girls
+                  in Rwanda.
                 </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mb-4">
-                  <img src="images/person_2.jpg" alt="Jennifer Greive" className="w-32 h-32 rounded-full mx-auto" />
-                  <h3 className="text-xl font-bold mt-4">Jennifer Greive</h3>
-                  <p className="text-gray-600">President</p>
-                </div>
-                <p className="text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mb-4">
-                  <img src="images/person_3.jpg" alt="Patrick Marx" className="w-32 h-32 rounded-full mx-auto" />
-                  <h3 className="text-xl font-bold mt-4">Patrick Marx</h3>
-                  <p className="text-gray-600">Marketer</p>
-                </div>
-                <p className="text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mb-4">
-                  <img src="images/person_4.jpg" alt="Mike Coolbert" className="w-32 h-32 rounded-full mx-auto" />
-                  <h3 className="text-xl font-bold mt-4">Mike Coolbert</h3>
-                  <p className="text-gray-600">Partner</p>
-                </div>
-                <p className="text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Image Carousel Section */}
-      <div className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('images/bg_2.jpg')" }}></div>
-            <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('images/bg_1.jpg')" }}></div>
-            <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('images/bg_3.jpg')" }}></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Features Section */}
-      <div className="py-16 border-t">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="flex items-start">
-              <div className="text-blue-600 text-3xl mr-4">
-                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
-                </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Our Mission</h3>
-                <p className="text-gray-600 mb-2">
-                  A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                </p>
-                <Link to="/mission" className="text-blue-600 hover:underline">Learn More</Link>
+                <img
+                  src="/images/1.jpg"
+                  alt="RNADW Founding"
+                  width={500}
+                  height={300}
+                  className="rounded-xl shadow-lg object-cover"
+                />
               </div>
             </div>
 
-            <div className="flex items-start">
-              <div className="text-blue-600 text-3xl mr-4">
-                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd" />
-                </svg>
+            {/* 2010–2015 - Growth */}
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div className="order-2 md:order-1">
+                <img
+                  src="/images/3.jpg"
+                  alt="RNADW Growth"
+                  width={500}
+                  height={300}
+                  className="rounded-xl shadow-lg object-cover"
+                />
               </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">Make Donations</h3>
-                <p className="text-gray-600 mb-2">
-                  A small river named Duden flows by their place and supplies it with the necessary regelialia.
+              <div className="order-1 md:order-2">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Growth and Development (2010–2015)</h3>
+                <p className="text-gray-700 leading-relaxed text-base">
+                  RNADW expanded its programs and partnerships locally and internationally. We created our first
+                  strategic plan and launched initiatives in education, health, and economic empowerment.
                 </p>
-                <Link to="/donate" className="text-blue-600 hover:underline">Learn More</Link>
               </div>
             </div>
 
-            <div className="flex items-start">
-              <div className="text-blue-600 text-3xl mr-4">
-                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-                </svg>
+            {/* Present - Impact */}
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Present Day Impact</h3>
+                <p className="text-gray-700 leading-relaxed text-base">
+                  Today, RNADW is a recognized leader in advocating for deaf women’s rights in Rwanda. We have
+                  positively impacted over 500 lives and continue building inclusive opportunities for deaf girls
+                  and women.
+                </p>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">We Need Volunteers</h3>
-                <p className="text-gray-600 mb-2">
-                  A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                </p>
-                <Link to="/volunteer" className="text-blue-600 hover:underline">Learn More</Link>
+                <img
+                  src="/images/4.jpg"
+                  alt="RNADW Today"
+                  width={500}
+                  height={300}
+                  className="rounded-xl shadow-lg object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-   
+      {/* Leadership Section */}
+      <div className="mt-20 px-4">
+        {/* <div className="max-w-7xl mx-auto"> */}
+          <div className="text-center mb-16">
+            
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">OUR TEAM</h2>
+            <span className="text-yellow-600 font-semibold uppercase tracking-wide">MEET THE BOARD</span>
+            <div className="w-16 h-1 bg-yellow-600 mx-auto mt-2 mb-4 rounded"></div></div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          {[
+            { name: "MUHORAKEYE Pelagie", role:"PRESIDENT",
+            img: "Pelagie.jpg" },
+            { name: "DUSABE Monique", role: "VICE PRESIDENT", img: "Dusabe.jpg" },
+            { name: "NZAMUKUNDA Proscille", role: "SECRETARY", img: "Proscille.jpg" },
+            { name: "NIYONSHUTI Bridget", role: "TREASURER", img: "1aa.jpg" },
+          ].map((leader, idx) => (
+            <div key={idx} className="text-center">
+              <div className="mb-4">
+                <img src={`/images/${leader.img}`} alt={leader.name} className="w-32 h-32 rounded-full mx-auto" />
+                <h3 className="text-xl font-bold mt-4">{leader.name}</h3>
+                <p className="text-gray-600">{leader.role}</p>
+              </div>
+              <p className="text-gray-700">
+                Dedicated to the mission of empowering deaf women and leading the organization forward.
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Staff Section */}
+<div className="mt-20 px-4">
+  <div className="text-center mb-16">
+    <span className="text-yellow-600 font-semibold uppercase tracking-wide">MEET THE STAFF TEAM</span>
+    <div className="w-16 h-1 bg-yellow-600 mx-auto mt-2 mb-4 rounded"></div>
+    <p className="text-gray-600 max-w-xl mx-auto">
+      Our dedicated staff members work tirelessly behind the scenes to support our mission and deliver on our programs every day.
+    </p>
+  </div>
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+    {[
+      { name: "MUKAKIBIBI Alphonsine", role: "Executive Director", img: "1aa-e-1.jpg" },
+      { name: "UWINEZA Diane", role: "Programs Manager", img: "Annet.jpg" },
+      { name: "MUKANDOLI Sarah", role: "Finance Officer", img: "1aa-r.jpg" },
+      { name: "NIYONSENGA Eve", role: "Communication Officer", img: "1aa-qw.jpg" },
+    ].map((staff, idx) => (
+      <div key={idx} className="text-center">
+        <div className="mb-4">
+          <img
+            src={`/images/${staff.img}`}
+            alt={staff.name}
+            className="w-32 h-32 rounded-full mx-auto object-cover shadow"
+          />
+          <h3 className="text-xl font-bold mt-4">{staff.name}</h3>
+          <p className="text-gray-600">{staff.role}</p>
+        </div>
+        <p className="text-gray-700">
+          Committed to the RNADW mission and delivering meaningful results for our community.
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+     {/* Partner Section */}
+<div className="py-16 bg-gray-50">
+  <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-10 text-center">Our Partners</h2>
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center justify-items-center">
+      {["UN_WOMEN_Logo.svg.png", "UNFPA_logo.svg.png", "USAID.png"].map((logo, i) => (
+        <div key={i} className="p-4 bg-white rounded-lg shadow-md flex items-center justify-center">
+          <img
+            src={`/images/${logo}`}
+            alt={`Partner ${i + 1}`}
+            className="h-20 object-contain"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+<div>
+
+</div>
+    <Features/>  
     </div>
   );
 };
