@@ -9,7 +9,7 @@ const Donate = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-    <HeroDonate/>
+    {/* <HeroDonate/> */}
 
       {/* Latest Donations Section */}
       <DonatePage/>

@@ -8,6 +8,7 @@ import Foundraisers from './home/Foundraisers';
 import Features from './home/Features';
 import Counter from './home/Counter';
 import Hero from './home/Hero';
+import Partner from './home/Partner';
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
 
       {/* Features Section */}
      <Features/>
+     <Partner/>
 
       {/* Fundraisers Section */}
       <Foundraisers/>

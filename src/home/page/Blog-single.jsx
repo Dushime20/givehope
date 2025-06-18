@@ -5,7 +5,7 @@ import MainContent from './blog-details/Main-content';
 
 const BlogSingle = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 mt-8">
       {/* Hero Section */}
      {/* <Hero/> */}
 

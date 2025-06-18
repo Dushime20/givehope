@@ -1,7 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+
 import VolunteerForm from './home/VolunteerForm';
-import Hero from './gallery/Hero';
 
 const Gallery = () => {
   const galleryImages = [
@@ -21,21 +19,21 @@ const Gallery = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <Hero/>
+
 
       {/* Gallery Section */}
-      <div className="py-16">
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Photo Gallery</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {galleryImages.map((image) => (
-              <div key={image.id} className="group relative overflow-hidden rounded-lg shadow-sm">
+              <div key={image.id} className="group relative overflow-hidden rounded-lg shadow-md">
                 <img
                   src={image.src}
-                  alt="Gallery"
-                  className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
+                  alt={`Gallery ${image.id}`}
+                  className="w-full h-72 object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-center justify-center">
                   <button className="opacity-0 group-hover:opacity-100 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                     <svg
                       className="w-8 h-8 text-white"
@@ -56,12 +54,17 @@ const Gallery = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Volunteer Section */}
-      <VolunteerForm/>
-
-     
+      {/* Volunteer Form Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-extrabold text-center text-gray-800 mb-12">
+            Join Our Volunteer Program
+          </h2>
+          <VolunteerForm />
+        </div>
+      </section>
     </div>
   );
 };

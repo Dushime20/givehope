@@ -26,33 +26,9 @@ export default function VocationalTrainingDetail() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 mt-8">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 bg-gray-800 rounded-sm"></div>
-              <span className="text-lg font-bold text-gray-900">RNADW</span>
-            </div>
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-gray-700 hover:text-gray-900">
-                Home
-              </a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">
-                About
-              </a>
-              <a href="#" className="text-gray-900 font-medium">
-                Projects
-              </a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">
-                Contact
-              </a>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2">Donate</Button>
-            </nav>
-          </div>
-        </div>
-      </header>
+     
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Back Navigation */}
@@ -79,7 +55,7 @@ export default function VocationalTrainingDetail() {
         {/* Hero Image */}
         <div className="mb-12">
           <Image
-            src="/placeholder.svg?height=400&width=800"
+            src="images/bg_3.jpg"
             alt="Women participating in vocational training program"
             width={800}
             height={400}

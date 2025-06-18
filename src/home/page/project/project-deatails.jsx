@@ -13,32 +13,7 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gray-800 rounded"></div>
-              <span className="text-xl font-bold text-gray-900">RNADW</span>
-            </div>
-            <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-600 hover:text-gray-900">
-                Home
-              </a>
-              <a href="#" className="text-gray-600 hover:text-gray-900">
-                About
-              </a>
-              <a href="#" className="text-blue-600 font-medium">
-                Projects
-              </a>
-              <a href="#" className="text-gray-600 hover:text-gray-900">
-                Contact
-              </a>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2">Donate</Button>
-            </nav>
-          </div>
-        </div>
-      </header>
+     
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Back Button */}
@@ -69,7 +44,7 @@ export default function ProjectDetail() {
         {/* Hero Image */}
         <div className="mb-12">
           <img
-            src="/placeholder.svg?height=400&width=800"
+            src="images/bg_3.jpg"
             alt="Women participating in vocational training"
             className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
           />

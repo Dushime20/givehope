@@ -13,6 +13,7 @@ import Footer from './home/layout/Footer'
 import DonatePage from './home/page/donatePage/DonatePage'
 import ProjectsPage from './home/page/project-page'
 import ProjectDetail from './home/page/project/project-deatails'
+import ImageGalleryPage from './home/page/home/ImageGalleryPage'
 
 
 
@@ -29,7 +30,7 @@ function App() {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/donate" element={<Donate/>} />
           <Route path="/videos" element={<Videos/>} />
-          <Route path="/gallery" element={<Gallery/>} />
+          <Route path="/gallery" element={<ImageGalleryPage/>} />
          
           <Route path="/donate-page" element={<DonatePage/>} />
           <Route path="/projects" element={<ProjectsPage/>} />

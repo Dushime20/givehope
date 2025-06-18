@@ -55,7 +55,7 @@ const handleSubmit = (e) => {
               </div>
               <div className="order-first md:order-last">
                 <img
-                  src="/placeholder.svg?height=300&width=500"
+                  src="images/bg_3.jpg"
                   alt="Women in vocational training"
                   className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
                 />
@@ -82,7 +82,7 @@ const handleSubmit = (e) => {
               </div>
               <div className="order-first md:order-last">
                 <img
-                  src="/placeholder.svg?height=300&width=500"
+                  src="images/bg_1.jpg"
                   alt="Family learning sign language"
                   className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
                 />
@@ -116,7 +116,7 @@ const handleSubmit = (e) => {
               </div>
               <div className="order-first md:order-last">
                 <img
-                  src="/placeholder.svg?height=300&width=500"
+                  src="images/bg_2.jpg"
                   alt="Advocacy event"
                   className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
                 />
@@ -143,7 +143,7 @@ const handleSubmit = (e) => {
               </div>
               <div className="order-first md:order-last">
                 <img
-                  src="/placeholder.svg?height=300&width=500"
+                  src="images/bg_3.jpg"
                   alt="Community outreach"
                   className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
                 />
