@@ -38,7 +38,7 @@ const handleSubmit = (e) => {
             {/* Project 1 */}
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
-                <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
                   Active Project
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Empowering Deaf Women Through Vocational Training</h3>
@@ -48,7 +48,7 @@ const handleSubmit = (e) => {
                 </p>
                 <div className="flex space-x-4">
                   <Button className="bg-blue-600 hover:bg-blue-700 text-white"><Link to={'/projects-details'}>Learn More</Link></Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                  <Button variant="outline" className="border-yellow-400 text-grey-600 bg-yellow-400 hover:bg-yellow-600">
                     <Link to={"/donate-page"}>Donate</Link>
                   </Button>
                 </div>
@@ -65,7 +65,7 @@ const handleSubmit = (e) => {
             {/* Project 2 */}
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
-                <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
                   Active Project
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Sign Language Education for Families</h3>
@@ -75,7 +75,7 @@ const handleSubmit = (e) => {
                 </p>
                 <div className="flex space-x-4">
                   <Button className="bg-blue-600 hover:bg-blue-700 text-white">Learn More</Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                  <Button variant="outline" className="border-yellow-400 text-grey-800 bg-yellow-400 hover:bg-yellow-600">
                     Enroll Family
                   </Button>
                 </div>
@@ -109,7 +109,7 @@ const handleSubmit = (e) => {
                 </p>
                 <div className="flex space-x-4">
                   <Button className="bg-blue-600 hover:bg-blue-700 text-white">View Results</Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                  <Button variant="outline" className="border-yellow-400 text-grey-800 bg-yellow-400 hover:bg-yellow-600">
                     Read Report
                   </Button>
                 </div>
@@ -136,7 +136,7 @@ const handleSubmit = (e) => {
                 </p>
                 <div className="flex space-x-4">
                   <Button className="bg-blue-600 hover:bg-blue-700 text-white">View Impact</Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                  <Button variant="outline" className="border-yellow-400 text-grey-600 bg-yellow-400 hover:bg-yellow-600">
                     Photo Gallery
                   </Button>
                 </div>

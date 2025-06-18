@@ -10,7 +10,7 @@ const BlogPost = () => {
             {/* Blog Post 1 */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <Link to="/blog-single" className="block mb-3">
-                <img src="/images/img_4.jpg" alt="Image placeholder" className="w-full" />
+                <img src="/images/1.jpg" alt="Image placeholder" className="w-full" />
               </Link>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">
@@ -31,7 +31,7 @@ const BlogPost = () => {
             {/* Blog Post 2 */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <Link to="/blog-single" className="block mb-3">
-                <img src="/images/img_5.jpg" alt="Image placeholder" className="w-full" />
+                <img src="/images/2.jpg" alt="Image placeholder" className="w-full" />
               </Link>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">
@@ -52,7 +52,7 @@ const BlogPost = () => {
             {/* Blog Post 3 */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <Link to="/blog-single" className="block mb-3">
-                <img src="/images/img_6.jpg" alt="Image placeholder" className="w-full" />
+                <img src="/images/3.jpg" alt="Image placeholder" className="w-full" />
               </Link>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">
@@ -73,7 +73,7 @@ const BlogPost = () => {
             {/* Blog Post 4 */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <Link to="/blog-single" className="block mb-3">
-                <img src="/images/img_4.jpg" alt="Image placeholder" className="w-full" />
+                <img src="/images/4.jpg" alt="Image placeholder" className="w-full" />
               </Link>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">
@@ -94,7 +94,7 @@ const BlogPost = () => {
             {/* Blog Post 5 */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <Link to="/blog-single" className="block mb-3">
-                <img src="/images/img_5.jpg" alt="Image placeholder" className="w-full" />
+                <img src="/images/teacher-1.jpg" alt="Image placeholder" className="w-full" />
               </Link>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">
