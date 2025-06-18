@@ -10,6 +10,10 @@ import Videos from './home/page/Videos'
 import Gallery from './home/page/Gallery'
 import Projects from './home/page/Projects'
 import Footer from './home/layout/Footer'
+import DonatePage from './home/page/donatePage/DonatePage'
+import ProjectsPage from './home/page/project-page'
+import ProjectDetail from './home/page/project/project-deatails'
+
 
 
 function App() {
@@ -26,7 +30,11 @@ function App() {
           <Route path="/donate" element={<Donate/>} />
           <Route path="/videos" element={<Videos/>} />
           <Route path="/gallery" element={<Gallery/>} />
-          <Route path="/projects" element={<Projects/>} />
+         
+          <Route path="/donate-page" element={<DonatePage/>} />
+          <Route path="/projects" element={<ProjectsPage/>} />
+          <Route path="/projects-details" element={<ProjectDetail/>} />
+         
         </Routes>
         <Footer/>
       </div>
