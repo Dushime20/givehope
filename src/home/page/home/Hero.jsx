@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaPlay } from 'react-icons/fa';
 
 const Hero = () => {
   return (
@@ -29,12 +30,30 @@ const Hero = () => {
                 Association of Deaf <br />
                 Women (RNADW)
               </h2>
-              <a
-                href="/donate-page"
-                className="inline-block bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full hover:bg-yellow-400 transition"
-              >
-                Donate Now
-              </a>
+              <div>
+                 <div>
+                <p style={{ display: "inline-block" }}>
+      <a
+        href="https://www.youtube.com/watch?v=SFhndjv-PfY"
+        data-fancybox
+        className="ftco-play-video d-flex"
+      >
+        <span className="play-icon-wrap align-self-center mr-4">
+          <FaPlay />
+        </span>
+        <span className="align-self-center">Watch Video</span>
+      </a>
+    </p>
+              </div>
+                  <div><a
+                  href="/donate-page"
+                  className="inline-block bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full hover:bg-yellow-400 transition"
+                  >
+                  Donate Now
+                  </a>
+              </div>
+             
+              </div>
             </div>
           </div>
 
