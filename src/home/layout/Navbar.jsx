@@ -23,7 +23,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-semibold tracking-widest text-black uppercase">
               <img src="images/Logo.png" alt="logo"
-              className="h-10 w-auto object-contain"/>
+              className="h-15 w-auto object-contain"/>
             </Link>
           </div>
           <div className="hidden md:flex space-x-8">
