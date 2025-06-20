@@ -26,7 +26,7 @@ const handleSubmit = (e) => {
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Projects</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore the initiatives and programs driving change for Deaf women in Rwanda.
+            Discover our ongoing and completed projects that are making a real difference in the lives of deaf women and girls across Rwanda.
           </p>
         </div>
 

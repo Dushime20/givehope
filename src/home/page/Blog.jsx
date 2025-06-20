@@ -1,18 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Hero from './home/Hero';
-import BlogPost from './blog/BlogPost';
+import HeroBlog from './blog-details/HeroBlog';
+import BlogPost from'./Blog/BlogPost';
 
 const Blog = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <Hero/>
+      {/* HeroBlog Section : the header of all blog news */}
+      <HeroBlog/>
 
       {/* Blog Posts Section */}
-      <BlogPost/>
-
- 
+    <BlogPost/>
     </div>
   );
 };

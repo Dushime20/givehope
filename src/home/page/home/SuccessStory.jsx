@@ -15,7 +15,7 @@ const SuccessStory = () => {
               <h2 className="text-3xl font-bold mb-4">Water Is Life. We Successfully Provide Clean Water in South East Asia</h2>
               <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
               <span className="text-xl block mb-8">We have raised $100,000</span>
-              <Link to="/story" className="inline-block bg-green-600 text-white px-8 py-3 rounded hover:bg-green-700 transition">
+              <Link to="/story" className="inline-block bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700 transition">
                 Read The Full Story
               </Link>
             </div>

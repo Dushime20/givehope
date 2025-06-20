@@ -8,11 +8,11 @@ const Foundraisers = () => {
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Latest Fundraisers</h2>
+            <h2 className="text-3xl font-bold mb-4">Latest Programs</h2>
             <p className="text-gray-600 mb-4">
-              Some quick example text to build on the card title and make up the bulk of the card's content.
+              Empowering Deaf women through training, education, and inclusive community programs.
             </p>
-            <Link to="/fundraisers" className="text-blue-600 hover:underline">View All Fundraisers</Link>
+            <Link to="/projects" className="text-blue-600 hover:underline">View All Projects</Link>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">

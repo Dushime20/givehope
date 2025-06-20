@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import CounterSection from './CounterSection';
 const Counter = () => {
   return (
     <div>
@@ -9,12 +10,7 @@ const Counter = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="text-center md:text-left">
               <div className="mb-8">
-                <span className="text-gray-600 block mb-2">Served Over</span>
-                <div className="text-5xl font-bold text-blue-600 mb-2">1,321,901</div>
-                <span className="text-gray-600 block mb-4">Children in 150 Countries</span>
-                <Link to="/program" className="inline-block bg-gray-100 text-gray-800 px-6 py-2 rounded hover:bg-gray-200 transition">
-                  View Our Program
-                </Link>
+                <CounterSection/>
               </div>
             </div>
             <div>

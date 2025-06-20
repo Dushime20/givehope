@@ -15,7 +15,7 @@ const About = () => {
           }}
         >
           <div className="w-full h-full  flex items-center justify-center">
-            <div className="text-center text-white px-4">
+            <div className="text-center px-4">
               <h2 className="text-4xl font-bold">About The RNADW "UMUCYO"</h2>
             </div>
           </div>

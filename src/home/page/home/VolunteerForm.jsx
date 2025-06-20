@@ -24,7 +24,7 @@ const VolunteerForm = () => {
                 <div className="mb-4">
                   <textarea className="w-full px-4 py-2 border rounded" rows="3" placeholder="Write your message"></textarea>
                 </div>
-                <button type="submit" className="bg-white text-gray-800 px-8 py-2 rounded hover:bg-gray-100 transition">
+                <button type="submit" className="bg-blue-600 text-white px-8 py-2 rounded hover:bg-blue-700 transition">
                   Send
                 </button>
               </form>

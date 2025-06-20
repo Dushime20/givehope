@@ -8,7 +8,7 @@ import Contact from './home/page/Contact'
 import Donate from './home/page/Donate'
 import Videos from './home/page/Videos'
 import Gallery from './home/page/Gallery'
-import Projects from './home/page/Projects'
+
 import Footer from './home/layout/Footer'
 import DonatePage from './home/page/donatePage/DonatePage'
 import ProjectsPage from './home/page/project-page'

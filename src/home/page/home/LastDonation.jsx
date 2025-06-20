@@ -10,7 +10,7 @@ const LastDonation = () => {
              <div className="text-center mb-12">
                <h2 className="text-3xl font-bold mb-4">Latest Donations</h2>
                <p className="text-lg text-gray-600 mb-4">
-                 Some quick example text to build on the card title and make up the bulk of the card's content.
+                 Real-time support from compassionate donors helping us transform lives every day.
                </p>
                <Link to="#" className="text-blue-600 hover:text-blue-800 underline">
                  View All Donations
