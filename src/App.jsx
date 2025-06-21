@@ -14,6 +14,7 @@ import DonatePage from './home/page/donatePage/DonatePage'
 import ProjectsPage from './home/page/project-page'
 import ProjectDetail from './home/page/project/project-deatails'
 import ImageGalleryPage from './home/page/home/ImageGalleryPage'
+import ScrollToTop from './home/layout/ScrollToTop'
 
 
 
@@ -35,8 +36,10 @@ function App() {
           <Route path="/donate-page" element={<DonatePage/>} />
           <Route path="/projects" element={<ProjectsPage/>} />
           <Route path="/projects-details" element={<ProjectDetail/>} />
+          
          
         </Routes>
+        <ScrollToTop/>
         <Footer/>
       </div>
     </Router>
