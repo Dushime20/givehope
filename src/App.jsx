@@ -7,7 +7,7 @@ import Home from './home/page/Home';
 import About from './home/page/About';
 import Contact from './home/page/Contact';
 import Videos from './home/page/Videos';
-import Blog from './home/page/Blog';
+
 import BlogSingle from './home/page/Blog-single';
 import Donate from './home/page/Donate';
 import DonatePage from './home/page/donatePage/DonatePage';
@@ -30,6 +30,8 @@ import Dashboard from './dashboard copy/dashboard';
 import UserSettings from './dashboard copy/user/User';
 import AddNewUser from './dashboard copy/user/AddUser';
 import EditUser from './dashboard copy/user/EditUser';
+import Blog from './home/page/Blog';
+
 
 
 
@@ -72,7 +74,7 @@ function App() {
           <Route path="/dashboard/resources/add" element={<AddResource />} />
           <Route path="/dashboard/resources/edit/:id" element={<EditResource />} />
 
-          {/* Project Management */}
+          {/* Project Management */} 
           <Route path="/dashboard/project" element={<AllProjects/>} />
           <Route path="/dashboard/projects/add" element={<AddProject />} />
           <Route path="/dashboard/projects/edit/:id" element={<EditProject />} />
