@@ -7,8 +7,9 @@ const Blog = () => {
     <div className="min-h-screen bg-gray-50">
       {/* HeroBlog Section : the header of all blog news */}
       <HeroBlog/>
+      {/* correcte error */}
 
-      {/* Blog Posts Section */}
+      {/* Blog Posts  */}
     <BlogPost/>
     </div>
   );
