@@ -1,5 +1,5 @@
 import HeroBlog from './blog-details/HeroBlog';
-import BlogPost from './Blog/BlogPost';
+import BlogPost from './blog-page/BlogPost';
 
 
 const Blog = () => {
@@ -7,7 +7,7 @@ const Blog = () => {
     <div className="min-h-screen bg-gray-50">
       {/* HeroBlog Section : the header of all blog news */}
       <HeroBlog/>
-      {/* correcte error */}
+      
 
       {/* Blog Posts  */}
     <BlogPost/>
