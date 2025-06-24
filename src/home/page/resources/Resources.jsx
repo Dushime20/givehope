@@ -130,16 +130,10 @@ const Resources = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Hero Section */}
-      <div className="bg-yellow-100 py-16 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Resources</h1>
-        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-          Access official guides, videos, and helpful links related to gender equality, SRHR, and CEDAW.
-        </p>
-      </div>
+    
 
       {/* Filter + Search */}
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-8 mt-12">
         <div className="flex flex-wrap justify-center gap-4 mb-6">
           {["all", "pdf", "video", "link"].map((type) => (
             <button

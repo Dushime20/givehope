@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const BlogPost = () => {
   return (
     <div>
-        <div className="py-16 bg-gray-50">
+        <div className="py-16 mt-3 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Blog Post 1 */}

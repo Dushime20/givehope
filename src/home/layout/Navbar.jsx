@@ -33,8 +33,8 @@ const Navbar = () => {
                 key={item.path}
                 to={item.path}
                 className={`text-sm font-medium ${
-                  location.pathname === item.path ? 'text-yellow-500' : 'text-black'
-                } hover:text-yellow-500 transition`}
+                  location.pathname === item.path ? 'text-[#155dfd]' : 'text-black'
+                } hover:text-blue-700 transition`}
               >
                 {item.label}
               </Link>
@@ -71,8 +71,8 @@ const Navbar = () => {
               to={item.path}
               onClick={() => setIsOpen(false)}
               className={`block py-2 text-sm font-medium ${
-                location.pathname === item.path ? 'text-yellow-500' : 'text-black'
-              } hover:text-yellow-500`}
+                location.pathname === item.path ? 'text-[#155dfd]' : 'text-black'
+              } hover:text-blue-700`}
             >
               {item.label}
             </Link>
