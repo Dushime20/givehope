@@ -147,7 +147,7 @@ const AuthTabs = () => {
           <h1 className="text-3xl font-bold">Welcome</h1>
         </div>
         <p className="font-medium text-center p-6">
-          Fill in the form to get started with Agrilink Rwanda
+          to RNADW "UMUCYO"
         </p>
 
         <Tabs defaultValue="login" className="w-full">

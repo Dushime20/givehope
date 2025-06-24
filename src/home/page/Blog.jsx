@@ -1,5 +1,6 @@
 import HeroBlog from './blog-details/HeroBlog';
-import BlogPost from'./Blog/BlogPost';
+import BlogPost from './Blog/BlogPost';
+
 
 const Blog = () => {
   return (
