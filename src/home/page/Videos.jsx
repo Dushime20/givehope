@@ -63,7 +63,9 @@ const Videos = () => {
   return (
     <div className="bg-white">
       {/* Header */}
-
+      <div className="mt-32">
+        <h1 className="text-3xl font-bold text-center mb-8">Our Video Gallery</h1>
+      </div>
       {/* Section 1: SGBV / VAWG */}
       <VideoSection title="SGBV / VAWG Videos" videos={videosData.sgBV_VAWG} />
 

@@ -1,0 +1,51 @@
+import React from "react";
+import { FaFilePdf, FaExternalLinkAlt, FaVideo } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+const ResourceCard = ({ id, type, title, description, link }) => {
+  const iconMap = {
+    pdf: <FaFilePdf className="text-red-600 text-3xl" />,
+    link: <FaExternalLinkAlt className="text-blue-600 text-3xl" />,
+    video: <FaVideo className="text-purple-600 text-3xl" />,
+  };
+
+  return (
+    <div className="bg-white shadow-lg rounded-xl p-6 max-w-sm w-full">
+      <div className="flex items-center gap-4 mb-4">
+        {iconMap[type]}
+        <h3 className="text-xl font-semibold">{title}</h3>
+      </div>
+      <p className="text-gray-700 mb-4">{description}</p>
+      {type === "pdf" && (
+        <>
+          <Link
+            to={`/resources/view/${id}`}
+            className="inline-block text-yellow-700 border border-yellow-500 hover:bg-yellow-100 transition px-4 py-2 rounded-lg mr-2"
+          >
+            Read Now
+          </Link>
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-white bg-yellow-500 hover:bg-yellow-600 transition px-4 py-2 rounded-lg"
+          >
+            Download
+          </a>
+        </>
+      )}
+      {type !== "pdf" && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-white bg-yellow-500 hover:bg-yellow-600 transition px-4 py-2 rounded-lg"
+        >
+          {type === "video" ? "Watch Video" : "Visit Link"}
+        </a>
+      )}
+    </div>
+  );
+};
+
+export default ResourceCard;

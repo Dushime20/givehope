@@ -2,8 +2,8 @@ import React from "react";
 
 const HeroDonate = () => {
   return (
-    <section className="bg-[url('/donate-bg.jpg')] bg-cover bg-center text-white py-24 px-4 text-center">
-      <div className="bg-black/50 backdrop-blur-sm p-6 rounded-xl inline-block">
+    <section className="bg-gray-100 text-gray-900 py-24 px-4 text-center">
+      <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl inline-block">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Support Our Mission
         </h1>

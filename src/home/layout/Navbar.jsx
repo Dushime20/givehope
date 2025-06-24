@@ -11,6 +11,7 @@ const Navbar = () => {
     { path: '/donate', label: 'Donate' },
     { path: '/videos', label: 'Video' },
     { path: '/gallery', label: 'Gallery' },
+    { path: '/resources', label: 'Resources'},
     { path: '/blog', label: 'Blog' },
     { path: '/about', label: 'About' },
     { path: '/contact', label: 'Contact' },
