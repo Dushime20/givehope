@@ -31,6 +31,19 @@ import UserSettings from './dashboard copy/user/User';
 import AddNewUser from './dashboard copy/user/AddUser';
 import EditUser from './dashboard copy/user/EditUser';
 import Blog from './home/page/Blog';
+import AllImage from './dashboard copy/image/allImage';
+import AddImage from './dashboard copy/image/addImage';
+import EditImage from './dashboard copy/image/editImage';
+import AllVideo from './dashboard copy/video/allVideo';
+import AddVideo from './dashboard copy/video/addVideo';
+import EditVideo from './dashboard copy/video/editVideo';
+import AllTeam from './dashboard copy/team/allTeam';
+import AddNewTeam from './dashboard copy/team/addNewTeam';
+import EditTeam from './dashboard copy/team/editTeam';
+import AllSuggestion from './dashboard copy/suggestion/allSuggestion';
+import AddSuggestion from './dashboard copy/suggestion/addSuggestion';
+import EditSuggestion from './dashboard copy/suggestion/editSuggestion';
+import GenerateReport from './dashboard copy/report/generateReport';
 
 
 
@@ -65,7 +78,7 @@ function App() {
           <Route path="/dashboard/edit-user/:id" element={<EditUser />} />
 
           {/* Blog Management */}
-          <Route path="/dashboard/blogs" element={<AllBlogs />} />
+          <Route path="/dashboard/blog" element={<AllBlogs />} />
           <Route path="/dashboard/blogs/add" element={<AddBlog/>} />
           <Route path="/dashboard/blogs/edit/:id" element={<EditBlog />} />
 
@@ -74,14 +87,37 @@ function App() {
           <Route path="/dashboard/resources/add" element={<AddResource />} />
           <Route path="/dashboard/resources/edit/:id" element={<EditResource />} />
 
-          {/* Project Management */} 
+          {/* Project Management */}
           <Route path="/dashboard/project" element={<AllProjects/>} />
           <Route path="/dashboard/projects/add" element={<AddProject />} />
           <Route path="/dashboard/projects/edit/:id" element={<EditProject />} />
+
+          {/* Image Management */}
+          <Route path="/dashboard/image" element={<AllImage />} />
+          <Route path="/dashboard/image/add" element={<AddImage />} />
+          <Route path="/dashboard/image/edit/:id" element={<EditImage />} />
+
+          {/* Video Management */}
+          <Route path="/dashboard/video" element={<AllVideo />} />
+          <Route path="/dashboard/video/add" element={<AddVideo />} />
+          <Route path="/dashboard/video/edit/:id" element={<EditVideo />} />
+
+          {/* Team Management */}
+          <Route path="/dashboard/team" element={<AllTeam />} />
+          <Route path="/dashboard/team/add" element={<AddNewTeam />} />
+          <Route path="/dashboard/team/edit/:id" element={<EditTeam />} />
+
+          {/* Suggestion Management */}
+          <Route path="/dashboard/suggestions" element={<AllSuggestion />} />
+          <Route path="/dashboard/suggestion/add" element={<AddSuggestion />} />
+          <Route path="/dashboard/suggestion/edit/:id" element={<EditSuggestion />} />
+
+          {/* Report Management */}
+          <Route path="/dashboard/reports" element={<GenerateReport />} />
         </Route>
 
         {/* Dashboard Default Route */}
-        <Route path="/dashboard" element={<Navigate to="/dashboard/projects" replace />} />
+        <Route path="/dashboard" element={<Navigate to="/dashboard/project" replace />} />
       </Routes>
     </Router>
   );

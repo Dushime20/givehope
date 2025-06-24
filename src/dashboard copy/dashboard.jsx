@@ -7,7 +7,7 @@ const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen  bg-blue-300 overflow-hidden">
       {/* Sidebar */}
       <aside
         className={`
@@ -30,7 +30,7 @@ const Dashboard = () => {
       )}
 
       {/* Main Content Area */}
-      <div className="flex flex-col flex-1  h-screen">
+      <div className="flex flex-col bg-blue-300 flex-1 h-screen">
         {/* Sticky Header */}
         <header className="sticky top-0 z-10 bg-white border-b shadow-sm">
           <div className="flex items-center justify-between px-4 py-3 md:px-6">
@@ -62,7 +62,7 @@ const Dashboard = () => {
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-y-auto px-4 py-6 md:px-6 bg-gray-50">
+        <main className="flex-1 overflow-y-auto px-4 py-6 md:px-6 bg-gray-300">
           <Outlet />
         </main>
       </div>
