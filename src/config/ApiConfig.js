@@ -3,8 +3,8 @@ import { jwtDecode } from 'jwt-decode';
 
 class ApiService {
  static BASE_URL = process.env.NODE_ENV === 'production' 
-  ? "https://agrlink-backend.onrender.com/agritech/v1"
-  : "http://localhost:3300/agritech/v1";
+  ? "https://rnwda-backend.onrender.com/api/"
+  : "http://localhost:3300/api/";
 
   static getHeader(data) {
     const token = localStorage.getItem("token");
@@ -122,135 +122,477 @@ class ApiService {
     }
   }
 
-  /*** PRODUCT *****/
+  /*** BLOG *****/
 
-  /** Add product */
-  static async Addproduct(formData) {
+  /** Add blog */
+  static async Addblog(formData) {
     try {
-      const response = await axios.post(`${this.BASE_URL}/product/add`, formData, {
+      const response = await axios.post(`${this.BASE_URL}/blog`, formData, {
         headers: this.getHeader(formData), // Pass formData here
       });
       return response.data;
     } catch (error) {
-      console.error("Error adding product in:", error);
+      console.error("Error adding blog in:", error);
       // optionally throw error here
     }
   }
 
   /** Get all products */
-  static async getAllProducts() {
+  static async getAllBlog() {
     try {
-      const response = await axios.get(`${this.BASE_URL}/product/getAll`, {
+      const response = await axios.get(`${this.BASE_URL}/blog`, {
         headers: this.getHeader(),
       });
       return response.data;
     } catch (error) {
-      console.error("Error fetching all products:", error);
+      console.error("Error fetching all blogs:", error);
       throw error;
     }
   }
 
-  /** Get product by ID */
-  static async getProductById(id) {
+  /** Get blog by ID */
+  static async getBlogById(id) {
     try {
-      const response = await axios.get(`${this.BASE_URL}/product/getById/${id}`, {
+      const response = await axios.get(`${this.BASE_URL}/blog//${id}`, {
         headers: this.getHeader(),
       });
       return response.data;
     } catch (error) {
-      console.error("Error fetching product by ID:", error);
+      console.error("Error fetching  by ID:", error);
       throw error;
     }
   }
 
-  /** Get products by seller ID */
-  static async getProductBySellerId() {
+  /** Update blog by ID */
+  static async updateBlogById(id, updatedData) {
     try {
-      const response = await axios.get(`${this.BASE_URL}/product/getBySellerId`, {
+      const response = await axios.put(`${this.BASE_URL}/blog/${id}`, updatedData, {
+        headers: this.getHeader(updatedData),
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating blog with ID ${id}:`, error);
+      throw error;
+    }
+  }
+
+  /** Delete blog by ID */
+  static async deleteBlogById(id) {   
+    try {
+      const response = await axios.delete(`${this.BASE_URL}/blog/${id}`, {    
+        headers: this.getHeader(),
+      });     
+      return response.data;
+    } catch (error) {     
+      console.error(`Error deleting blog with ID ${id}:`, error);
+      throw error;          
+    }
+  }
+
+  /*** search blog with keyword ***/
+  static async searchBlog(keyword) {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/blog/search?keyword=${keyword}`, {
         headers: this.getHeader(),
       });
       return response.data;
     } catch (error) {
-      console.error("Error fetching products by seller ID:", error);
+      console.error("Error searching blog:", error);
       throw error;
     }
   }
 
-  /** Filter products by name, price, and category */
-  static async filterProductByNameAndPriceAndCategory(queryParams) {
+/** MEDIA*** */
+  /** Upload media */
+  static async uploadPhotoMedia(formData) {    
     try {
-      const query = new URLSearchParams(queryParams).toString();
-      const response = await axios.get(`${this.BASE_URL}/product/filterProduct?${query}`, {
+      const response = await axios.post(`${this.BASE_URL}/media/photo`, formData, {
+        headers: this.getHeader(formData), // Pass formData here
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error uploading media:", error);
+      throw error;
+    }
+  }
+
+  /*** get madia photo byId**** */
+  static async getMediaPhotoById(id) {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/media/photo/${id}`, {
         headers: this.getHeader(),
       });
       return response.data;
     } catch (error) {
-      console.error("Error filtering products:", error);
+      console.error("Error fetching media photo by ID:", error);
       throw error;
     }
-  }
+  } 
 
 
-  /*** ORDER *** */
-   /** Create Order */
-  static async createOrder(productId, orderData) {
+  /** Get all media photos */
+  static async getAllMediaPhotos() {
     try {
-      const response = await axios.post(
-        `${this.BASE_URL}/order/add/${productId}`,
-        orderData,
-        {
-          headers: this.getHeader(orderData),
-        }
-      );
-      return response.data;
-    } catch (error) {
-      console.error('Error creating order:', error);
-      throw error;
-    }
-  }
-
-  /** Get all orders (admin use typically) */
-  static async getAllOrders() {
-    try {
-      const response = await axios.get(`${this.BASE_URL}/order/getAll`, {
+      const response = await axios.get(`${this.BASE_URL}/media/gallery`, {
         headers: this.getHeader(),
       });
       return response.data;
     } catch (error) {
-      console.error('Error getting all orders:', error);
+      console.error("Error fetching all media photos:", error);
       throw error;
     }
-  }
+  } 
 
-  /** Get orders by buyer (authenticated buyer only) */
-  static async getOrdersByBuyerId() {
+  /*** delete media photo byId ***/
+  static async deleteMediaPhotoById(id) {
     try {
-      const response = await axios.get(`${this.BASE_URL}/order/getByBuyerId`, {
+      const response = await axios.delete(`${this.BASE_URL}/media/photo/${id}`, {
         headers: this.getHeader(),
       });
       return response.data;
     } catch (error) {
-      console.error('Error fetching buyer orders:', error);
+      console.error(`Error deleting media photo with ID ${id}:`, error);
       throw error;
     }
   }
 
-  /** Get orders by seller (authenticated seller only) */
-  static async getOrdersBySellerId() {
+
+  /**** add media video **** */
+  static async uploadVideoMedia(formData) {
     try {
-      const response = await axios.get(`${this.BASE_URL}/order/getBySellerId`, {
+      const response = await axios.post(`${this.BASE_URL}/media/video`, formData, {
+        headers: this.getHeader(formData), // Pass formData here
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error uploading video media:", error);
+      throw error;
+    }
+  }
+
+  /** Get all media videos */
+  static async getAllMediaVideos() {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/media/video`, {
         headers: this.getHeader(),
       });
       return response.data;
     } catch (error) {
-      console.error('Error fetching seller orders:', error);
+      console.error("Error fetching all media videos:", error);
+      throw error;
+    }
+  }
+
+  /** Get media video by ID */
+  static async getMediaVideoById(id) {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/media/video/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching media video by ID:", error);
+      throw error;
+    }
+  }
+  /** Delete media video by ID */
+  static async deleteMediaVideoById(id) {
+    try {
+      const response = await axios.delete(`${this.BASE_URL}/media/video/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error deleting media video with ID ${id}:`, error);
+      throw error;
+    }
+  }
+
+  /*********PROJECT */
+  /** Add project */
+  static async addProject(formData) { 
+    try {
+      const response = await axios.post(`${this.BASE_URL}/project`, formData, {
+        headers: this.getHeader(formData), // Pass formData here
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error adding project:", error);
       throw error;
     }
   }
 
 
+  /** Get all projects */
+  static async getAllProjects() {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/project/public`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all projects:", error);
+      throw error;
+    }
+  }
+
+  /** Get all projects admin */
+  static async getAllProjectsAdmin() {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/project/admin`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all projects for admin:", error);
+      throw error;
+    }
+  } 
+
+  /** Get project by ID */
+  static async getProjectById(id) {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/project/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching project by ID:", error);
+      throw error;
+    }
+  }
+  /** Update project by ID */
+  static async updateProjectById(id, updatedData) {
+    try {
+      const response = await axios.put(`${this.BASE_URL}/project/${id}`, updatedData, {
+        headers: this.getHeader(updatedData), // Pass data here
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating project with ID ${id}:`, error);
+      throw error;
+    }
+  }
+  /** Delete project by ID */
+  static async deleteProjectById(id) {    
+    try {
+      const response = await axios.delete(`${this.BASE_URL}/project/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error deleting project with ID ${id}:`, error);
+      throw error;
+    }
+  }
 
 
+  /*****RESOURCE GROUP ****** */
+  /** Add resource group */
+  static async addResourceGroup(formData) {   
+    try {
+      const response = await axios.post(`${this.BASE_URL}/resource/group`, formData, {
+        headers: this.getHeader(formData), // Pass formData here
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error adding resource group:", error);
+      throw error;
+    }
+  }
+
+
+  /** Get all resource groups */
+  static async getAllResourceGroups() {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/resource/group`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all resource groups:", error);
+      throw error;
+    }
+  }
+
+
+  /** create resource  */
+  static async createResource(formData) {
+    try {
+      const response = await axios.post(`${this.BASE_URL}/resource/upload`, formData, {
+        headers: this.getHeader(formData), // Pass formData here
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error creating resource:", error);
+      throw error;
+    }
+  }
+
+  /** Get all resources */
+
+  static async getAllResources() {
+    try { 
+      const response = await axios.get(`${this.BASE_URL}/resource`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all resources:", error);
+      throw error;
+    }
+  }
+
+  /** Get resource by ID */
+  static async getResourceById(id) {  
+    try {
+      const response = await axios.get(`${this.BASE_URL}/resource/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching resource by ID:", error);
+      throw error;
+    }
+  }
+
+
+  /****SUGGESTIONS ****** */
+  /** Add suggestion */
+  static async addSuggestion(formData) {  
+    try {
+      const response = await axios.post(`${this.BASE_URL}/suggestion`, formData, {
+        headers: this.getHeader(formData), // Pass formData here
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error adding suggestion:", error);
+      throw error;
+    }
+  }
+
+  /** Get all suggestions */
+  static async getAllSuggestions() {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/suggestion/admin`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all suggestions:", error);
+      throw error;
+    }
+  }
+
+
+  /** Get suggestion by ID */
+  static async getSuggestionById(id) {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/suggestion/admin/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching suggestion by ID:", error);
+      throw error;
+    }
+  }
+
+  /** Update suggestion by ID */
+  static async updateSuggestionById(id, updatedData) {  
+    try {
+      const response = await axios.patch(`${this.BASE_URL}/suggestion/admin/${id}`, updatedData, {
+        headers: this.getHeader(updatedData), // Pass data here
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating suggestion with ID ${id}:`, error);
+      throw error;
+    }
+  }
+
+
+  /*** TEAM**** */
+  /** Add team member */
+  static async addTeamMember(formData) {  
+    try {
+      const response = await axios.post(`${this.BASE_URL}/team`, formData, {
+        headers: this.getHeader(formData), // Pass formData here
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error adding team member:", error);
+      throw error;
+    }
+  }
+
+
+  /** Get all team members */
+  static async getAllTeamMembers() {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/team`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all team members:", error);
+      throw error;
+    }
+  }
+
+
+  /** Get team member by ID */
+  static async getTeamMemberById(id) {    
+    try {
+      const response = await axios.get(`${this.BASE_URL}/team/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching team member by ID:", error);
+      throw error;
+    }
+  }
+
+
+  /** Update team member by ID */
+  static async updateTeamMemberById(id, updatedData) {
+    try {
+      const response = await axios.patch(`${this.BASE_URL}/team/${id}`, updatedData, {
+        headers: this.getHeader(updatedData), // Pass data here
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating team member with ID ${id}:`, error);
+      throw error;
+    }
+  }
+/** Delete team member by ID */
+  static async deleteTeamMemberById(id) {
+    try {
+      const response = await axios.delete(`${this.BASE_URL}/team/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error deleting team member with ID ${id}:`, error);
+      throw error;
+    }
+  }
+
+
+/*** get team member by admin **** */
+  static async getAllTeamMembersAdmin() {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/team/admin`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all team members for admin:", error);
+      throw error;
+    }
+  }
 
   /**** PAYMENT ****/
   /** Initiate PayPack payment */
@@ -267,6 +609,9 @@ class ApiService {
       throw error;
     }
   }
+
+
+
 
   /** Verify PayPack payment */
   static async verifyPaypackPayment() {
