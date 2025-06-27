@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApiService from '@/config/ApiConfig';
-import ReactQuill from 'react-quill';
+import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 
 const statusOptions = [
