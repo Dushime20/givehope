@@ -89,7 +89,7 @@ const Contact = () => {
           </div>
 
           <div>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6 shadow p-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
@@ -156,9 +156,7 @@ const Contact = () => {
               </button>
             </form>
          </div>
-         <div className="flex justify-center  mx-auto">
-              <Partner/>
-            </div>
+        
         </div>
       </div>
     </section>

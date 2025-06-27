@@ -47,7 +47,7 @@ const Hero = () => {
               {/* Donate Now Button */}
               <a
                 href="/donate-page"
-                className="inline-block bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full hover:bg-yellow-400 transition"
+                className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-400 transition"
               >
                 Donate Now
               </a>

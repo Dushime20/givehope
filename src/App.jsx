@@ -17,33 +17,34 @@ import ProjectsPage from './home/page/project-page';
 import ProjectDetail from './home/page/project/project-deatails';
 import ImageGalleryPage from './home/page/home/ImageGalleryPage';
 import AuthTabs from './auth/AuthTabs';
-import AllBlogs from './dashboard copy/blog/allBlog';
-import AddBlog from './dashboard copy/blog/addBlog';
-import EditBlog from './dashboard copy/blog/editBlog';
-import AllResources from './dashboard copy/resource/AllResource';
-import AddResource from './dashboard copy/resource/AddResource';
-import EditResource from './dashboard copy/resource/EditResource';
-import AllProjects from './dashboard copy/project/AllProjects';
-import AddProject from './dashboard copy/project/AddProject';
-import EditProject from './dashboard copy/project/EditProject';
-import Dashboard from './dashboard copy/dashboard';
-import UserSettings from './dashboard copy/user/User';
-import AddNewUser from './dashboard copy/user/AddUser';
-import EditUser from './dashboard copy/user/EditUser';
+import AllBlogs from './dashboard/blog/allBlog';
+import AddBlog from './dashboard/blog/addBlog';
+import EditBlog from './dashboard/blog/editBlog';
+import AllResources from './dashboard/resource/AllResource';
+import AddResource from './dashboard/resource/AddResource';
+import EditResource from './dashboard/resource/EditResource';
+import AllProjects from './dashboard/project/AllProjects';
+import AddProject from './dashboard/project/AddProject';
+import EditProject from './dashboard/project/EditProject';
+import Dashboard from './dashboard/dashboard';
+import UserSettings from './dashboard/user/User';
+import AddNewUser from './dashboard/user/AddUser';
+import EditUser from './dashboard/user/EditUser';
 import Blog from './home/page/Blog';
-import AllImage from './dashboard copy/image/allImage';
-import AddImage from './dashboard copy/image/addImage';
-import EditImage from './dashboard copy/image/editImage';
-import AllVideo from './dashboard copy/video/allVideo';
-import AddVideo from './dashboard copy/video/addVideo';
-import EditVideo from './dashboard copy/video/editVideo';
-import AllTeam from './dashboard copy/team/allTeam';
-import AddNewTeam from './dashboard copy/team/addNewTeam';
-import EditTeam from './dashboard copy/team/editTeam';
-import AllSuggestion from './dashboard copy/suggestion/allSuggestion';
-import AddSuggestion from './dashboard copy/suggestion/addSuggestion';
-import EditSuggestion from './dashboard copy/suggestion/editSuggestion';
-import GenerateReport from './dashboard copy/report/generateReport';
+import AllImage from './dashboard/image/allImage';
+import AddImage from './dashboard/image/addImage';
+import EditImage from './dashboard/image/editImage';
+import AllVideo from './dashboard/video/allVideo';
+import AddVideo from './dashboard/video/addVideo';
+import EditVideo from './dashboard/video/editVideo';
+import AllTeam from './dashboard/team/allTeam';
+import AddNewTeam from './dashboard/team/addNewTeam';
+import EditTeam from './dashboard/team/editTeam';
+import AllSuggestion from './dashboard/suggestion/allSuggestion';
+import AddSuggestion from './dashboard/suggestion/addSuggestion';
+import EditSuggestion from './dashboard/suggestion/editSuggestion';
+import GenerateReport from './dashboard/report/generateReport';
+import Overview from './dashboard/over-view';
 
 
 
@@ -72,6 +73,8 @@ function App() {
 
         {/* Dashboard Routes */}
         <Route element={<Dashboard />}>
+          {/* Overview */}
+          <Route path="/dashboard/overview" element={<Overview />} />
           {/* User Management */}
           <Route path="/dashboard/user-settings" element={<UserSettings />} />
           <Route path="/dashboard/add-user" element={<AddNewUser />} />
@@ -90,7 +93,7 @@ function App() {
           {/* Project Management */}
           <Route path="/dashboard/project" element={<AllProjects/>} />
           <Route path="/dashboard/projects/add" element={<AddProject />} />
-          <Route path="/dashboard/projects/edit/:id" element={<EditProject />} />
+          <Route path="/dashboard/project/edit/:id" element={<EditProject />} />
 
           {/* Image Management */}
           <Route path="/dashboard/image" element={<AllImage />} />
@@ -117,7 +120,7 @@ function App() {
         </Route>
 
         {/* Dashboard Default Route */}
-        <Route path="/dashboard" element={<Navigate to="/dashboard/project" replace />} />
+        <Route path="/dashboard" element={<Navigate to="/dashboard/overview" replace />} />
       </Routes>
     </Router>
   );

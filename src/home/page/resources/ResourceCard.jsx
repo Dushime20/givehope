@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ResourceCard = ({ id, type, title, description, link }) => {
   const iconMap = {
     pdf: <FaFilePdf className="text-red-600 text-3xl" />,
-    link: <FaExternalLinkAlt className="text-blue-600 text-3xl" />,
+    link: <FaExternalLinkAlt className="text-yellow-600 text-3xl" />,
     video: <FaVideo className="text-purple-600 text-3xl" />,
   };
 
@@ -20,7 +20,7 @@ const ResourceCard = ({ id, type, title, description, link }) => {
         <>
           <Link
             to={`/resources/view/${id}`}
-            className="inline-block text-yellow-700 border border-yellow-500 hover:bg-yellow-100 transition px-4 py-2 rounded-lg mr-2"
+            className="inline-block text-blue-600 border border-blue-500 hover:bg-blue-100 transition px-4 py-2 rounded-lg mr-2"
           >
             Read Now
           </Link>
@@ -28,7 +28,7 @@ const ResourceCard = ({ id, type, title, description, link }) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-white bg-yellow-500 hover:bg-yellow-600 transition px-4 py-2 rounded-lg"
+            className="inline-block text-white bg-blue-600 hover:bg-blue-400 transition px-4 py-2 rounded-lg"
           >
             Download
           </a>
@@ -39,7 +39,7 @@ const ResourceCard = ({ id, type, title, description, link }) => {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block text-white bg-yellow-500 hover:bg-yellow-600 transition px-4 py-2 rounded-lg"
+          className="inline-block text-white bg-blue-600 hover:bg-blue-400 transition px-4 py-2 rounded-lg"
         >
           {type === "video" ? "Watch Video" : "Visit Link"}
         </a>

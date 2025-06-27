@@ -2,9 +2,9 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
 class ApiService {
- static BASE_URL = process.env.NODE_ENV === 'production' 
-  ? "https://rnwda-backend.onrender.com/api/"
-  : "http://localhost:3300/api/";
+ static BASE_URL = "https://rnwda-backend.onrender.com/api"
+  
+  
 
   static getHeader(data) {
     const token = localStorage.getItem("token");
@@ -37,10 +37,10 @@ class ApiService {
   }
 
   /** Login a registered user */
-  static async loginUser(formData) {
+  static async loginAdmin(formData) {
     try {
       const response = await axios.post(
-        `${this.BASE_URL}/user/signin`,
+        `${this.BASE_URL}/auth/login`,
         formData,
         {
           headers: this.getHeader(formData), // Pass formData here
@@ -133,7 +133,10 @@ class ApiService {
       return response.data;
     } catch (error) {
       console.error("Error adding blog in:", error);
+      console.error("Error response data:", error.response?.data);
+      console.error("Error response status:", error.response?.status);
       // optionally throw error here
+      throw error;
     }
   }
 
@@ -153,7 +156,7 @@ class ApiService {
   /** Get blog by ID */
   static async getBlogById(id) {
     try {
-      const response = await axios.get(`${this.BASE_URL}/blog//${id}`, {
+      const response = await axios.get(`${this.BASE_URL}/blog/${id}`, {
         headers: this.getHeader(),
       });
       return response.data;
@@ -166,7 +169,7 @@ class ApiService {
   /** Update blog by ID */
   static async updateBlogById(id, updatedData) {
     try {
-      const response = await axios.put(`${this.BASE_URL}/blog/${id}`, updatedData, {
+      const response = await axios.patch(`${this.BASE_URL}/blog/${id}`, updatedData, {
         headers: this.getHeader(updatedData),
       });
       return response.data;
@@ -186,6 +189,21 @@ class ApiService {
     } catch (error) {     
       console.error(`Error deleting blog with ID ${id}:`, error);
       throw error;          
+    }
+  }
+
+  /*** Get all blogs by admin  ***/
+  static async getAllBlogAdmin() {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/blog/admin`, {   
+        headers: this.getHeader(),
+      });
+      return response.data;
+    }
+    catch (error) {
+
+      console.error("Error fetching all blogs for admin:", error);
+      throw error;
     }
   }
 
@@ -364,7 +382,7 @@ class ApiService {
   /** Update project by ID */
   static async updateProjectById(id, updatedData) {
     try {
-      const response = await axios.put(`${this.BASE_URL}/project/${id}`, updatedData, {
+      const response = await axios.patch(`${this.BASE_URL}/project/${id}`, updatedData, {
         headers: this.getHeader(updatedData), // Pass data here
       });
       return response.data;

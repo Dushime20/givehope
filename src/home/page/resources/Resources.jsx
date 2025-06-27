@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaFilePdf, FaExternalLinkAlt, FaVideo, FaSearch } from "react-icons/fa";
-import ResourceCard from "../../../components/ui/ResourceCard";
+import ResourceCard from "./ResourceCard";
 import { Link } from "react-router-dom";
 
 const Resources = () => {
@@ -89,16 +89,8 @@ const Resources = () => {
   }, [filter, searchTerm, allResources]);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-      {/* Large yellow banner with headline */}
-      <div className="bg-blue-200 rounded-xl shadow-md p-8 mb-8">
-        <h1 className="text-4xl font-bold text-center text-grey mb-4">Our Resources</h1>
-        <p className="text-xl text-center text-grey-100 max-w-3xl mx-auto">
-          Access our comprehensive collection of guides, videos, and links about 
-          Sexual and Reproductive Health and Rights (SRHR) and the Convention on 
-          the Elimination of all Forms of Discrimination Against Women (CEDAW).
-        </p>
-      </div>
+    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 mt-12">
+    
 
       {/* Filter buttons */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">

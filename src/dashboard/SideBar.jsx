@@ -26,7 +26,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className="h-screen w-56 bg-white text-blue-700 flex flex-col shadow-2xl overflow-y-auto">
+    <div className="h-screen w-56 bg-[#f3f7ff] text-blue-700 flex flex-col  overflow-y-auto">
       {/* Title */}
       <div className="p-5 text-xl font-bold text-center border-b border-gray-200">
         RNADW <span className="text-green-600">"UMUCYO"</span>
@@ -40,6 +40,7 @@ const SideBar = () => {
           isOpen={openSections.content}
           onToggle={() => toggleSection("content")}
           items={[
+            { to: "/dashboard/overview", icon: <MdLibraryBooks />, label: "Overview" },
             { to: "/dashboard/blog", icon: <FaProductHunt />, label: "Blog" },
             { to: "/dashboard/resource", icon: <FaLuggageCart />, label: "Resource" },
             { to: "/dashboard/project", icon: <FaLuggageCart />, label: "Project" },
