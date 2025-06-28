@@ -1,69 +1,248 @@
 import React, { useState } from 'react';
-
-const categories = ['Events', 'Fundraising', 'Community'];
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+import { Toaster } from '@/components/ui/sonner';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import ApiService from '@/config/ApiConfig';
 
 const AddImage = () => {
-  const [title, setTitle] = useState('');
-  const [category, setCategory] = useState(categories[0]);
-  const [image, setImage] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    file: null,
+    alt: '',
+    title: '',
+    type: '',
+    status: 'ACTIVE'
+  });
+  const [loading, setLoading] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState('');
 
-  const handleSubmit = (e) => {
+  const statusOptions = [
+    { value: 'ARCHIVED', label: 'Achived' },
+    { value: 'PUBLISHED', label: 'Published' },
+    { value: 'DELETED', label: 'Deleted' }
+  ];
+
+  const typeOptions = [
+    { value: 'PROFILE', label: 'Profile' },
+    { value: 'THUMBNAIL', label: 'Thumbnail' },
+    { value: 'GALLERY', label: 'Gallery' },
+    { value: 'PROJECT', label: 'Project' },
+    { value: 'PRIMARY', label: 'Primary' }
+  ];
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData(prev => ({ ...prev, file }));
+      
+      // Create preview URL
+      const url = URL.createObjectURL(file);
+      setPreviewUrl(url);
+    }
+  };
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock submit
-    setSuccess(true);
-    setTimeout(() => setSuccess(false), 2000);
-    setTitle('');
-    setCategory(categories[0]);
-    setImage(null);
+    
+    if (!formData.file) {
+      toast.error('Please select an image file');
+      return;
+    }
+
+    if (!formData.alt.trim()) {
+      toast.error('Alt text is required');
+      return;
+    }
+
+    setLoading(true);
+    
+    try {
+      // Create FormData for file upload
+      const submitData = new FormData();
+      submitData.append('file', formData.file);
+      submitData.append('alt', formData.alt);
+      submitData.append('title', formData.title);
+      submitData.append('type', formData.type);
+      submitData.append('status', formData.status);
+
+      // Call the uploadPhotoMedia method from ApiConfig
+      const response = await ApiService.uploadPhotoMedia(submitData);
+      
+      console.log('Upload response:', response);
+      toast.success('Image uploaded successfully!');
+      
+      // Reset form
+      setFormData({
+        file: null,
+        alt: '',
+        title: '',
+        type: '',
+        status: 'ARCHIVED'
+      });
+      setPreviewUrl('');
+      
+      // Navigate back to images list
+      setTimeout(() => {
+        navigate('/dashboard/image');
+      }, 1500);
+      
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      const errorMessage = error.response?.data?.message || 'Failed to upload image. Please try again.';
+      toast.error(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCancel = () => {
+    navigate('/dashboard/image/all');
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded shadow-md mt-8">
-      <h2 className="text-2xl font-bold mb-4">Add New Image</h2>
-      {success && (
-        <div className="mb-4 p-2 bg-green-100 text-green-700 rounded">Image added successfully!</div>
-      )}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold">Title</label>
-          <input
-            type="text"
-            className="w-full border rounded px-3 py-2"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <div className="max-w-2xl mx-auto">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold text-gray-800">Add New Image</h1>
+      
         </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold">Category</label>
-          <select
-            className="w-full border rounded px-3 py-2"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold">Image</label>
-          <input
-            type="file"
-            accept="image/*"
-            className="w-full"
-            onChange={(e) => setImage(e.target.files[0])}
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-        >
-          Add Image
-        </button>
-      </form>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Image Information</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* File Upload */}
+              <div className="space-y-2">
+                <Label htmlFor="file" className="text-sm font-medium">
+                  Image File *
+                </Label>
+                <Input
+                  id="file"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="cursor-pointer"
+                  required
+                />
+                {previewUrl && (
+                  <div className="mt-2">
+                    <img 
+                      src={previewUrl} 
+                      alt="Preview" 
+                      className="w-32 h-32 object-cover rounded-lg border"
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* Alt Text */}
+              <div className="space-y-2">
+                <Label htmlFor="alt" className="text-sm font-medium">
+                  Alt Text *
+                </Label>
+                <Input
+                  id="alt"
+                  type="text"
+                  value={formData.alt}
+                  onChange={(e) => handleInputChange('alt', e.target.value)}
+                  placeholder="Enter alt text for accessibility"
+                  required
+                />
+              </div>
+
+              {/* Title */}
+              <div className="space-y-2">
+                <Label htmlFor="title" className="text-sm font-medium">
+                  Title
+                </Label>
+                <Input
+                  id="title"
+                  type="text"
+                  value={formData.title}
+                  onChange={(e) => handleInputChange('title', e.target.value)}
+                  placeholder="Enter image title"
+                />
+              </div>
+
+              {/* Type */}
+              <div className="space-y-2">
+                <Label htmlFor="type" className="text-sm font-medium">
+                  Type
+                </Label>
+                <Select 
+                  value={formData.type} 
+                  onValueChange={(value) => handleInputChange('type', value)}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select image type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {typeOptions.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Status */}
+              <div className="space-y-2">
+                <Label htmlFor="status" className="text-sm font-medium">
+                  Status
+                </Label>
+                <Select 
+                  value={formData.status} 
+                  onValueChange={(value) => handleInputChange('status', value)}
+                >
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {statusOptions.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex gap-4 pt-4">
+                <Button 
+                  type="submit" 
+                  disabled={loading}
+                  className="flex-1 bg-blue-700 text-white hover:bg-blue-500 disabled:opacity-50"
+                >
+                  {loading ? 'Adding Image...' : 'Add Image'}
+                </Button>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  onClick={handleCancel}
+                  disabled={loading}
+                >
+                  Cancel
+                </Button>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+      
+      <Toaster position="top-right" richColors />
     </div>
   );
 };

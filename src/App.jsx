@@ -14,7 +14,7 @@ import DonatePage from './home/page/donatePage/DonatePage';
 import Resources from './home/page/resources/Resources';
 import ViewResource from './home/page/resources/ViewResource';
 import ProjectsPage from './home/page/project-page';
-import ProjectDetail from './home/page/project/project-deatails';
+import ProjectDetail from './home/page/project/project-details';
 import ImageGalleryPage from './home/page/home/ImageGalleryPage';
 import AuthTabs from './auth/AuthTabs';
 import AllBlogs from './dashboard/blog/allBlog';
@@ -65,7 +65,7 @@ function App() {
           <Route path="/donate" element={<Donate />} />
           <Route path="/donate-page" element={<DonatePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/projects-details" element={<ProjectDetail />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/view/:id" element={<ViewResource />} />
           <Route path="/auth" element={<AuthTabs />} />
