@@ -28,18 +28,7 @@ const Home = () => {
       {/* Fundraisers Section */}
       <Foundraisers/>
 
-      {/* Latest Donations Section */}
-     <LastDonation/>
-
-
-
-
-
-
-      
-
-      {/* Success Story Section */}
-     <SuccessStory/>
+  
 
       {/* Latest News Section */}
     <LatestNew/>

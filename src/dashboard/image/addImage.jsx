@@ -28,10 +28,9 @@ const AddImage = () => {
   ];
 
   const typeOptions = [
-    { value: 'PROFILE', label: 'Profile' },
-    { value: 'THUMBNAIL', label: 'Thumbnail' },
+
     { value: 'GALLERY', label: 'Gallery' },
-    { value: 'PROJECT', label: 'Project' },
+    
     { value: 'PRIMARY', label: 'Primary' }
   ];
 

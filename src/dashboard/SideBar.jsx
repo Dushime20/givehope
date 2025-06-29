@@ -5,7 +5,12 @@ import {
   FaLuggageCart,
   FaUsers,
   FaVideo,
+  FaArchive,
+  FaLayerGroup,
+  FaProjectDiagram,
+  FaRegNewspaper,
 } from "react-icons/fa";
+import { GrOverview } from "react-icons/gr";
 import { FaPhotoFilm, FaProductHunt } from "react-icons/fa6";
 import { TbMessageReportFilled } from "react-icons/tb";
 import { IoIosLogOut, IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
@@ -40,10 +45,11 @@ const SideBar = () => {
           isOpen={openSections.content}
           onToggle={() => toggleSection("content")}
           items={[
-            { to: "/dashboard/overview", icon: <MdLibraryBooks />, label: "Overview" },
-            { to: "/dashboard/blog", icon: <FaProductHunt />, label: "Blog" },
-            { to: "/dashboard/resource", icon: <FaLuggageCart />, label: "Resource" },
-            { to: "/dashboard/project", icon: <FaLuggageCart />, label: "Project" },
+            { to: "/dashboard/overview", icon: <GrOverview />, label: "Overview" },
+            { to: "/dashboard/blog", icon: <FaRegNewspaper />, label: "Blog" },
+            { to: "/dashboard/resource", icon: <FaLayerGroup />, label: "Resource" },
+          
+            { to: "/dashboard/project", icon: <FaProjectDiagram />, label: "Project" },
           ]}
         />
 

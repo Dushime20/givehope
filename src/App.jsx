@@ -6,16 +6,16 @@ import MainLayout from './home/layout/MainLayout';
 import Home from './home/page/Home';
 import About from './home/page/About';
 import Contact from './home/page/Contact';
-import Videos from './home/page/Videos';
+import Videos from './home/page/videos/Videos';
 
-import BlogSingle from './home/page/Blog-single';
+import BlogSingle from './home/page/blog-page/Blog-single';
 import Donate from './home/page/Donate';
 import DonatePage from './home/page/donatePage/DonatePage';
 import Resources from './home/page/resources/Resources';
 import ViewResource from './home/page/resources/ViewResource';
 import ProjectsPage from './home/page/project-page';
 import ProjectDetail from './home/page/project/project-details';
-import ImageGalleryPage from './home/page/home/ImageGalleryPage';
+import ImageGalleryPage from './home/page/gallery/ImageGalleryPage';
 import AuthTabs from './auth/AuthTabs';
 import AllBlogs from './dashboard/blog/allBlog';
 import AddBlog from './dashboard/blog/addBlog';
@@ -30,7 +30,7 @@ import Dashboard from './dashboard/dashboard';
 import UserSettings from './dashboard/user/User';
 import AddNewUser from './dashboard/user/AddUser';
 import EditUser from './dashboard/user/EditUser';
-import Blog from './home/page/Blog';
+
 import AllImage from './dashboard/image/allImage';
 import AddImage from './dashboard/image/addImage';
 import EditImage from './dashboard/image/editImage';
@@ -45,6 +45,7 @@ import AddSuggestion from './dashboard/suggestion/addSuggestion';
 import EditSuggestion from './dashboard/suggestion/editSuggestion';
 import GenerateReport from './dashboard/report/generateReport';
 import Overview from './dashboard/over-view';
+import BlogPost from './home/page/blog-page/BlogPost';
 
 
 
@@ -60,8 +61,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/videos" element={<Videos />} />
           <Route path="/gallery" element={<ImageGalleryPage />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog-single" element={<BlogSingle />} />
+          <Route path="/blog" element={<BlogPost />} />
+          <Route path="/blog-single/:id" element={<BlogSingle />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/donate-page" element={<DonatePage />} />
           <Route path="/projects" element={<ProjectsPage />} />

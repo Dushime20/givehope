@@ -199,15 +199,12 @@ const AllImage = () => {
                     <tr key={image.id}>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <div className="flex items-center">
-                          <img 
-                            src={getImageUrl(image.url)} 
-                            alt={image.alt || image.title}
+                          <img
+                            src={image.url || '/src/assets/images/placeholder.jpg'}
+                            alt={image.title || 'Image preview'}
                             className="w-16 h-16 rounded-lg object-cover"
                             crossOrigin="anonymous"
-                            onError={(e) => {
-                              console.warn(`Failed to load image: ${image.url}`);
-                              e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0zMiAyMEMyNS4zNzIgMjAgMjAgMjUuMzcyIDIwIDMyQzIwIDM4LjYyOCAyNS4zNzIgNDQgMzIgNDRDMzguNjI4IDQ0IDQ0IDM4LjYyOCA0NCAzMkM0NCAyNS4zNzIgMzguNjI4IDIwIDMyIDIwWk0zMiA0MkMyOC42ODYgNDIgMjYgMzkuMzE0IDI2IDM2QzI2IDMyLjY4NiAyOC42ODYgMzAgMzIgMzBDMzUuMzE0IDMwIDM4IDMyLjY4NiAzOCAzNkMzOCAzOS4zMTQgMzUuMzE0IDQyIDMyIDQyWiIgZmlsbD0iIzlDQTNBRiIvPgo8L3N2Zz4K';
-                            }}
+                            onError={e => { e.target.src = '/src/assets/images/placeholder.jpg'; }}
                           />
                         </div>
                       </td>

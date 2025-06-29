@@ -1,205 +1,80 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ApiService from '../../../config/ApiConfig';
+
 
 const BlogPost = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      setLoading(true);
+      try {
+        const response = await ApiService.getAllBlog();
+        if (!response || !response.items) {
+          throw new Error('No blogs found');
+        }
+        console.log('Fetched blogs:', response.items); // Debugging log
+        setBlogs(response.items || []);
+      } catch (err) {
+        setError('Failed to load blogs.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center py-16">Loading blogs...</div>;
+  }
+  if (error) {
+    return <div className="text-center py-16 text-red-500">{error}</div>;
+  }
+
   return (
     <div>
-        <div className="py-16 mt-3 bg-gray-50">
+      <div className="py-16 mt-3 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Blog Post 1 */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <Link to="/blog-single" className="block mb-3">
-                <img src="/images/1.jpg" alt="Image placeholder" className="w-full" />
-              </Link>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  <Link to="/blog-single" className="text-gray-900 hover:text-blue-600">
-                    Be A Volunteer Today
+            {blogs.length === 0 ? (
+              <div className="col-span-3 text-center text-gray-500">No blogs found.</div>
+            ) : (
+              blogs.map((blog) => (
+                <div key={blog.id} className="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <Link to={`/blog-single/${blog.id}`} className="block mb-3">
+                    <img
+                      src={blog.imageUrl || '/src/assets/images/placeholder.jpg'}
+                      alt={blog.title || 'Blog image'}
+                      className="w-full h-56 object-cover"
+                      crossOrigin="anonymous"
+                      onError={e => { e.target.src = '/src/assets/images/placeholder.jpg'; }}
+                    />
                   </Link>
-                </h3>
-                <span className="text-gray-500 text-sm block mb-4">July 26, 2018</span>
-                <p className="text-gray-600 mb-4">
-                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-                </p>
-                <Link to="/blog-single" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Read More
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog Post 2 */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <Link to="/blog-single" className="block mb-3">
-                <img src="/images/2.jpg" alt="Image placeholder" className="w-full" />
-              </Link>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  <Link to="/blog-single" className="text-gray-900 hover:text-blue-600">
-                    You May Save The Life of A Child
-                  </Link>
-                </h3>
-                <span className="text-gray-500 text-sm block mb-4">July 26, 2018</span>
-                <p className="text-gray-600 mb-4">
-                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-                </p>
-                <Link to="/blog-single" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Read More
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog Post 3 */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <Link to="/blog-single" className="block mb-3">
-                <img src="/images/3.jpg" alt="Image placeholder" className="w-full" />
-              </Link>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  <Link to="/blog-single" className="text-gray-900 hover:text-blue-600">
-                    Children That Needs Care
-                  </Link>
-                </h3>
-                <span className="text-gray-500 text-sm block mb-4">July 26, 2018</span>
-                <p className="text-gray-600 mb-4">
-                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-                </p>
-                <Link to="/blog-single" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Read More
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog Post 4 */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <Link to="/blog-single" className="block mb-3">
-                <img src="/images/4.jpg" alt="Image placeholder" className="w-full" />
-              </Link>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  <Link to="/blog-single" className="text-gray-900 hover:text-blue-600">
-                    Be A Volunteer Today
-                  </Link>
-                </h3>
-                <span className="text-gray-500 text-sm block mb-4">July 26, 2018</span>
-                <p className="text-gray-600 mb-4">
-                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-                </p>
-                <Link to="/blog-single" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Read More
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog Post 5 */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <Link to="/blog-single" className="block mb-3">
-                <img src="/images/teacher-1.jpg" alt="Image placeholder" className="w-full" />
-              </Link>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  <Link to="/blog-single" className="text-gray-900 hover:text-blue-600">
-                    You May Save The Life of A Child
-                  </Link>
-                </h3>
-                <span className="text-gray-500 text-sm block mb-4">July 26, 2018</span>
-                <p className="text-gray-600 mb-4">
-                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-                </p>
-                <Link to="/blog-single" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Read More
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog Post 6 */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <Link to="/blog-single" className="block mb-3">
-                <img src="/images/img_6.jpg" alt="Image placeholder" className="w-full" />
-              </Link>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  <Link to="/blog-single" className="text-gray-900 hover:text-blue-600">
-                    Children That Needs Care
-                  </Link>
-                </h3>
-                <span className="text-gray-500 text-sm block mb-4">July 26, 2018</span>
-                <p className="text-gray-600 mb-4">
-                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-                </p>
-                <Link to="/blog-single" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Read More
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog Post 7 */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <Link to="/blog-single" className="block mb-3">
-                <img src="/images/img_4.jpg" alt="Image placeholder" className="w-full" />
-              </Link>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  <Link to="/blog-single" className="text-gray-900 hover:text-blue-600">
-                    Be A Volunteer Today
-                  </Link>
-                </h3>
-                <span className="text-gray-500 text-sm block mb-4">July 26, 2018</span>
-                <p className="text-gray-600 mb-4">
-                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-                </p>
-                <Link to="/blog-single" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Read More
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog Post 8 */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <Link to="/blog-single" className="block mb-3">
-                <img src="/images/img_5.jpg" alt="Image placeholder" className="w-full" />
-              </Link>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  <Link to="/blog-single" className="text-gray-900 hover:text-blue-600">
-                    You May Save The Life of A Child
-                  </Link>
-                </h3>
-                <span className="text-gray-500 text-sm block mb-4">July 26, 2018</span>
-                <p className="text-gray-600 mb-4">
-                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-                </p>
-                <Link to="/blog-single" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Read More
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog Post 9 */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <Link to="/blog-single" className="block mb-3">
-                <img src="/images/img_6.jpg" alt="Image placeholder" className="w-full" />
-              </Link>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  <Link to="/blog-single" className="text-gray-900 hover:text-blue-600">
-                    Children That Needs Care
-                  </Link>
-                </h3>
-                <span className="text-gray-500 text-sm block mb-4">July 26, 2018</span>
-                <p className="text-gray-600 mb-4">
-                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-                </p>
-                <Link to="/blog-single" className="text-blue-600 hover:text-blue-800 font-medium">
-                  Read More
-                </Link>
-              </div>
-            </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2">
+                      <Link to={`/blog-single/${blog.id}`} className="text-gray-900 hover:text-blue-600">
+                        {blog.title}
+                      </Link>
+                    </h3>
+                    <span className="text-gray-500 text-sm block mb-4">{new Date(blog.createdAt).toLocaleDateString()}</span>
+                    <p className="text-gray-600 mb-4 line-clamp-3">
+                      {blog.content?.slice(0, 120) || ''}{blog.content && blog.content.length > 120 ? '...' : ''}
+                    </p>
+                    <Link to={`/blog-single/${blog.id}`} className="text-blue-600 hover:text-blue-800 font-medium">
+                      Read More
+                    </Link>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default BlogPost

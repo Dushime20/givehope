@@ -220,6 +220,21 @@ class ApiService {
     }
   }
 
+  /**** comment */
+
+  /** Add comment */
+  static async addComment(formData,blogId) {
+    try {   
+      const response = await axios.post(`${this.BASE_URL}/comment/${blogId}`, formData, {
+        headers: this.getHeader(formData), // Pass formData here
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error adding comment:", error);
+      throw error;
+    }
+  }
+
 /** MEDIA*** */
   /** Upload media */
   static async uploadPhotoMedia(formData) {    
@@ -301,6 +316,13 @@ class ApiService {
     }
   }
 
+  /** Extract unique video types from videos */
+  static extractVideoTypes(videos) {
+    if (!videos || !Array.isArray(videos)) return [];
+    const uniqueTypes = [...new Set(videos.map(video => video.type).filter(Boolean))];
+    return uniqueTypes;
+  }
+
   /** Get media video by ID */
   static async getMediaVideoById(id) {
     try {
@@ -313,6 +335,19 @@ class ApiService {
       throw error;
     }
   }
+
+  /** update videoById */
+  static async updateVideoMedia(id, updatedData) {
+    try {
+      const response = await axios.patch(`${this.BASE_URL}/media/video/${id}`, updatedData, {
+        headers: this.getHeader(updatedData),
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating media video:`, error);
+      throw error;
+    }
+  }
   /** Delete media video by ID */
   static async deleteMediaVideoById(id) {
     try {
@@ -322,6 +357,19 @@ class ApiService {
       return response.data;
     } catch (error) {
       console.error(`Error deleting media video with ID ${id}:`, error);
+      throw error;
+    }
+  }
+
+  /** Update media video by ID */
+  static async updateVideoMedia(id, updatedData) {
+    try {
+      const response = await axios.patch(`${this.BASE_URL}/media/video/${id}`, updatedData, {
+        headers: this.getHeader(updatedData),
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating media video with ID ${id}:`, error);
       throw error;
     }
   }
@@ -474,6 +522,30 @@ class ApiService {
     }
   }
 
+  /** Update resource by ID */
+  static async updateResourceById(id, updatedData) {  
+    try { 
+      const response = await axios.put(`${this.BASE_URL}/resource/${id}`, updatedData, {
+        headers: this.getHeader(updatedData), // Pass data here
+      });
+      return response.data;
+    } catch (error) {   
+      console.error(`Error updating resource with ID ${id}:`, error);
+      throw error;
+    }
+  }
+  /** Delete resource by ID */
+  static async deleteResourceById(id) {  
+    try {
+      const response = await axios.delete(`${this.BASE_URL}/resource/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error deleting resource with ID ${id}:`, error);
+      throw error;
+    } 
+  }
 
   /****SUGGESTIONS ****** */
   /** Add suggestion */
