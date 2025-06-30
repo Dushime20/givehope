@@ -281,7 +281,7 @@ export default function ProjectDetail() {
                   </Button>
                 )}
                 <Button variant="outline" className="w-full border-gray-300 text-gray-700 hover:bg-gray-50">
-                  Volunteer
+                <Link to={"/contact"}>Contact us</Link>
                 </Button>
               
               </div>

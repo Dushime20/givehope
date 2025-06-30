@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ApiService from '../../config/ApiConfig';
+
 import { toast } from 'sonner';
+import ApiService from '../../config/ApiConfig';
 
 const statuses = ['UNREAD', 'READ'];
 
@@ -31,7 +32,7 @@ const EditSuggestionModal = ({ suggestionId, isOpen, onClose, onUpdated }) => {
     setLoading(true);
     setError(null);
     try {
-      await ApiService.updateSuggestionById(suggestionId, { status });
+      await ApiService.updateSuggestionStatusById(suggestionId, { status });
       setSuccess(true);
       toast.success('Suggestion status updated!');
       if (onUpdated) onUpdated();
@@ -39,7 +40,8 @@ const EditSuggestionModal = ({ suggestionId, isOpen, onClose, onUpdated }) => {
         setSuccess(false);
         onClose();
       }, 1000);
-    } catch {
+    } catch(err) {
+      console.log('Update error:', err);
       setError('Failed to update status');
       toast.error('Failed to update status');
     } finally {

@@ -591,7 +591,7 @@ class ApiService {
   /** Update suggestion by ID */
   static async updateSuggestionStatusById(id, updatedData) {  
     try {
-      const response = await axios.patch(`${this.BASE_URL}/suggestion/admin/${id}`, updatedData, {
+      const response = await axios.patch(`${this.BASE_URL}/suggestions/admin/${id}/read`, updatedData, {
         headers: this.getHeader(updatedData), // Pass data here
       });
       return response.data;
@@ -683,6 +683,83 @@ class ApiService {
       throw error;
     }
   }
+
+
+
+  /*****  PARTNER ***** */
+  /** Add partner */
+  static async addPartner(formData) {
+    try {
+      const response = await axios.post(`${this.BASE_URL}/partner`, formData, {
+
+        headers: this.getHeader(formData), // Pass formData here
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error adding partner:", error);
+      throw error;
+    }
+  }
+
+  /** Get all partners */
+  static async getAllPartners() {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/partner`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all partners:", error);
+      throw error;
+    }
+  }
+
+  /** Get partner by ID */
+  static async getPartnerById(id) {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/partner/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching partner by ID:", error);
+      throw error;
+    }
+  }
+  /** Update partner by ID */
+  static async updatePartnerById(id, updatedData) {
+    try {
+      const response = await axios.put(`${this.BASE_URL}/partner/${id}`, updatedData, {
+        headers: this.getHeader(updatedData), // Pass data here
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating partner with ID ${id}:`, error);
+      throw error;
+    }
+  }
+
+  /** Delete partner by ID */
+  static async deletePartnerById(id) {
+    try {
+      const response = await axios.delete(`${this.BASE_URL}/partner/${id}`, {
+        headers: this.getHeader(),
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error deleting partner with ID ${id}:`, error);
+      throw error;
+    }
+  }
+
+
+
+
+
+
+
+
+
 
   /**** PAYMENT ****/
   /** Initiate PayPack payment */

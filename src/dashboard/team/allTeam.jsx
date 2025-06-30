@@ -34,6 +34,8 @@ const AllTeam = () => {
   const [deletingMemberId, setDeletingMemberId] = useState(null);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [memberToDelete, setMemberToDelete] = useState(null);
+  const MEMBERS_PER_PAGE = 5;
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchTeamMembers = async () => {
@@ -67,6 +69,10 @@ const AllTeam = () => {
     fetchTeamMembers();
   }, []);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [members, filter, statusFilter]);
+
   // Helper function to format date
   const formatDate = (dateString) => {
     if (!dateString) return '';
@@ -92,6 +98,11 @@ const AllTeam = () => {
       return matchesRole && matchesStatus;
     });
   }, [members, filter, statusFilter]);
+
+  // Pagination logic
+  const totalFiltered = filteredMembers.length;
+  const totalPages = Math.ceil(totalFiltered / MEMBERS_PER_PAGE);
+  const paginatedMembers = filteredMembers.slice((currentPage - 1) * MEMBERS_PER_PAGE, currentPage * MEMBERS_PER_PAGE);
 
   const handleDeleteClick = (member) => {
     setMemberToDelete(member);
@@ -214,7 +225,7 @@ const AllTeam = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredMembers.map((member) => (
+              {paginatedMembers.map((member) => (
                 <tr key={member.id}>
                   <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <div className="flex items-center">
@@ -311,6 +322,35 @@ const AllTeam = () => {
           {pagination.totalPages > 1 && (
             <span> • Page {pagination.page + 1} of {pagination.totalPages}</span>
           )}
+        </div>
+      )}
+
+      {/* Pagination Controls */}
+      {!loading && !error && totalPages > 1 && (
+        <div className="flex justify-center items-center gap-2 mt-6">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="px-3 py-1 rounded bg-blue-500 text-white disabled:bg-gray-300"
+          >
+            Previous
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={`px-3 py-1 rounded ${currentPage === i + 1 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className="px-3 py-1 rounded bg-blue-500 text-white disabled:bg-gray-300"
+          >
+            Next
+          </button>
         </div>
       )}
 

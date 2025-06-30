@@ -49,7 +49,7 @@ const ViewSuggestion = () => {
               ) : '-'}
             </div>
           </div>
-          <Link to="/dashboard/suggestion/all" className="text-blue-600 hover:underline">Back to All Suggestions</Link>
+          <Link to="/dashboard/suggestions" className="text-blue-600 hover:underline">Back to All Suggestions</Link>
         </div>
       ) : null}
     </div>

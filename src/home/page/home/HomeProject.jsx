@@ -53,7 +53,7 @@ export default function HomeProject() {
   const displayedProjects = projects.slice(0, 3)
 
   return (
-    <div className="min-h-screen mt-8">
+    <div className="min-h-screen mt-8  bg-gray-50">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
         {/* Header section */}

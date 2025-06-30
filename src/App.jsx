@@ -27,9 +27,9 @@ import AllProjects from './dashboard/project/AllProjects';
 import AddProject from './dashboard/project/AddProject';
 import EditProject from './dashboard/project/EditProject';
 import Dashboard from './dashboard/dashboard';
-import UserSettings from './dashboard/user/User';
-import AddNewUser from './dashboard/user/AddUser';
-import EditUser from './dashboard/user/EditUser';
+import UserSettings from './dashboard/partner/partner';
+import AddNewUser from './dashboard/partner/AddPartner';
+import EditUser from './dashboard/partner/EditPartner';
 
 import AllImage from './dashboard/image/allImage';
 import AddImage from './dashboard/image/addImage';
@@ -78,9 +78,9 @@ function App() {
           {/* Overview */}
           <Route path="/dashboard/overview" element={<Overview />} />
           {/* User Management */}
-          <Route path="/dashboard/user-settings" element={<UserSettings />} />
-          <Route path="/dashboard/add-user" element={<AddNewUser />} />
-          <Route path="/dashboard/edit-user/:id" element={<EditUser />} />
+          <Route path="/dashboard/partner" element={<UserSettings />} />
+          <Route path="/dashboard/add-partner" element={<AddNewUser />} />
+          <Route path="/dashboard/edit-partner/:id" element={<EditUser />} />
 
           {/* Blog Management */}
           <Route path="/dashboard/blog" element={<AllBlogs />} />

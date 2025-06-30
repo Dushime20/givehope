@@ -34,7 +34,7 @@ const HomeBlog = () => {
   }
 
   return (
-    <div className="py-16 mt-3 bg-gray-50">
+    <div className="py-16 mt-3">
       <div className="container mx-auto px-4">
 
         {/* Header section */}

@@ -19,6 +19,7 @@ const EditTeam = () => {
   const [role, setRole] = useState('');
   const [bio, setBio] = useState('');
   const [type, setType] = useState('STAFF');
+  const [status, setStatus] = useState('ACTIVE');
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState('');
   const [currentImageUrl, setCurrentImageUrl] = useState('');
@@ -50,6 +51,7 @@ const EditTeam = () => {
         setRole(memberData.role || '');
         setBio(memberData.bio || '');
         setType(memberData.type || 'STAFF');
+        setStatus(memberData.status || 'ACTIVE');
         setCurrentImageUrl(memberData.imageUrl || '');
         
       } catch (err) {
@@ -85,6 +87,7 @@ const EditTeam = () => {
       formData.append('role', role);
       formData.append('bio', bio);
       formData.append('type', type);
+      formData.append('status', status);
       
       // Only append file if a new image is selected
       if (imageFile) {
@@ -98,6 +101,7 @@ const EditTeam = () => {
         role,
         bio,
         type,
+        status,
         hasNewImage: !!imageFile
       });
 
@@ -225,6 +229,22 @@ const EditTeam = () => {
                 {typeOptions.map(opt => (
                   <option key={opt.value} value={opt.value}>{opt.label}</option>
                 ))}
+              </select>
+            </div>
+
+            {/* Status */}
+            <div>
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="status">
+                Status
+              </label>
+              <select
+                id="status"
+                value={status}
+                onChange={e => setStatus(e.target.value)}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option value="ACTIVE">Active</option>
+                <option value="INACTIVE">Inactive</option>
               </select>
             </div>
 

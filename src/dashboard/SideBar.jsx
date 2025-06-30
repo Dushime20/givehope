@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaComment,
   FaLuggageCart,
@@ -15,6 +15,7 @@ import { FaPhotoFilm, FaProductHunt } from "react-icons/fa6";
 import { TbMessageReportFilled } from "react-icons/tb";
 import { IoIosLogOut, IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { MdLibraryBooks, MdOutlineVideoLibrary, MdManageAccounts } from "react-icons/md";
+import ApiService from '@/config/ApiConfig';
 
 const SideBar = () => {
   const [openSections, setOpenSections] = useState({
@@ -22,12 +23,18 @@ const SideBar = () => {
     media: false,
     management: false,
   });
+  const navigate = useNavigate();
 
   const toggleSection = (section) => {
     setOpenSections((prev) => ({
       ...prev,
       [section]: !prev[section],
     }));
+  };
+
+  const handleLogout = () => {
+    ApiService.logout();
+    navigate("/");
   };
 
   return (
@@ -73,7 +80,7 @@ const SideBar = () => {
           onToggle={() => toggleSection("management")}
           items={[
             { to: "/dashboard/team", icon: <FaUsers />, label: "Team" },
-            { to: "/dashboard/user-settings", icon: <FaUsers />, label: "User Settings" },
+            { to: "/dashboard/partner", icon: <FaUsers />, label: "Partner" },
             { to: "/dashboard/suggestions", icon: <FaComment />, label: "Suggestions" },
             { to: "/dashboard/reports", icon: <TbMessageReportFilled />, label: "Reports" },
           ]}
@@ -82,13 +89,13 @@ const SideBar = () => {
 
       {/* Logout */}
       <div className="p-4">
-        <Link
-          to="/"
-          className="flex items-center gap-2 text-pink-500 hover:text-pink-600 transition"
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-2 text-pink-500 hover:text-pink-600 transition w-full"
         >
           <IoIosLogOut className="text-lg" />
           Logout
-        </Link>
+        </button>
       </div>
     </div>
   );
