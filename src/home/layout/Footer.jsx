@@ -112,7 +112,7 @@ const Footer = () => {
               {/* Copyright */}
               <div className="text-center text-black pt-8 border-t border-gray-800">
                 <p>
-                  Copyright © {new Date().getFullYear()} RNADW. All rights reserved {' '}
+                  Copyright © {new Date().getFullYear()} <Link to={"/auth"}>RNADW</Link>. All rights reserved {' '}
                   
                 </p>
               </div>
