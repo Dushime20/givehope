@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ApiService from '../../../config/ApiConfig';
 
-
-const BlogPost = () => {
+const HomeBlog = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -35,14 +34,27 @@ const BlogPost = () => {
   }
 
   return (
-    <div>
-      <div className="py-16 mt-3 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogs.length === 0 ? (
-              <div className="col-span-3 text-center text-gray-500">No blogs found.</div>
-            ) : (
-              blogs.map((blog) => (
+    <div className="py-16 mt-3 bg-gray-50">
+      <div className="container mx-auto px-4">
+
+        {/* Header section */}
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-3xl font-bold text-gray-900">Latest News</h2>
+          <Link
+            to="/blog"
+            className="text-blue-600 hover:text-blue-800 font-medium"
+          >
+            View All
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogs.length === 0 ? (
+            <div className="col-span-3 text-center text-gray-500">No blogs found.</div>
+          ) : (
+            blogs
+              .slice(0, 3) // Only show first three blogs
+              .map((blog) => (
                 <div key={blog.id} className="bg-white rounded-lg shadow-sm overflow-hidden">
                   <Link to={`/blog-single/${blog.id}`} className="block mb-3">
                     <img
@@ -75,12 +87,11 @@ const BlogPost = () => {
                   </div>
                 </div>
               ))
-            )}
-          </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-export default BlogPost
+export default HomeBlog;

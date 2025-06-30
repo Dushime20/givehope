@@ -41,11 +41,12 @@ import AllTeam from './dashboard/team/allTeam';
 import AddNewTeam from './dashboard/team/addNewTeam';
 import EditTeam from './dashboard/team/editTeam';
 import AllSuggestion from './dashboard/suggestion/allSuggestion';
-import AddSuggestion from './dashboard/suggestion/addSuggestion';
+
 import EditSuggestion from './dashboard/suggestion/editSuggestion';
 import GenerateReport from './dashboard/report/generateReport';
 import Overview from './dashboard/over-view';
 import BlogPost from './home/page/blog-page/BlogPost';
+import ViewSuggestion from './dashboard/suggestion/ViewSuggestion';
 
 
 
@@ -93,7 +94,7 @@ function App() {
 
           {/* Project Management */}
           <Route path="/dashboard/project" element={<AllProjects/>} />
-          <Route path="/dashboard/projects/add" element={<AddProject />} />
+          <Route path="/dashboard/project/add" element={<AddProject />} />
           <Route path="/dashboard/project/edit/:id" element={<EditProject />} />
 
           {/* Image Management */}
@@ -113,7 +114,7 @@ function App() {
 
           {/* Suggestion Management */}
           <Route path="/dashboard/suggestions" element={<AllSuggestion />} />
-          <Route path="/dashboard/suggestion/add" element={<AddSuggestion />} />
+          <Route path="/dashboard/suggestion/view/:id" element={<ViewSuggestion />} />
           <Route path="/dashboard/suggestion/edit/:id" element={<EditSuggestion />} />
 
           {/* Report Management */}

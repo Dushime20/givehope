@@ -43,13 +43,13 @@ const ImageGalleryPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 mt-15 mb-3">
+    <div className="min-h-screen bg-gray-100 mt-15 pb-6 ">
       <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Our Gallery</h2>
       {/* Image Grid */}
-      <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 ">
         {images.map((image) => (
           <div key={image.id} className="overflow-hidden rounded-lg shadow-lg cursor-pointer hover:scale-105 transform transition-transform duration-300">
-            <div className="relative w-full h-64 bg-gray-200 flex items-center justify-center">
+            <div className="relative w-full h-54 bg-gray-200 flex items-center justify-center">
               {imgLoading[image.id] && (
                 <span className="absolute text-gray-400 text-sm z-10">{image.alt || 'Loading...'}</span>
               )}
@@ -76,7 +76,7 @@ const ImageGalleryPage = () => {
       </div>
       {/* Modal for larger image */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50" onClick={handleCloseModal}>
+        <div className="fixed inset-0 bg-transparent bg-opacity-70 flex items-center justify-center z-50" onClick={handleCloseModal}>
           <div className="relative max-w-3xl max-h-full p-4 bg-white rounded-lg shadow-lg" onClick={e => e.stopPropagation()}>
             <button
               className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"

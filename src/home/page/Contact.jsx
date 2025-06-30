@@ -2,7 +2,9 @@
 
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import Partner from "./home/Partner";
+import ApiService from "../../config/ApiConfig";
+import { toast } from 'sonner';
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +15,8 @@ const Contact = () => {
     message: "",
   });
 
+  const [submitting, setSubmitting] = useState(false);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -21,10 +25,30 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you can do any local action you want (like showing alert, etc.)
+    setSubmitting(true);
+    const suggestionBody = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      content: formData.message,
+    };
+    try {
+      await ApiService.addSuggestion(suggestionBody);
+      toast.success("Suggestion sent successfully!");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      toast.error("Failed to send suggestion. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -151,8 +175,19 @@ const Contact = () => {
               <button
                 type="submit"
                 className="w-full bg-blue-500 text-white py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors"
+                disabled={submitting}
               >
-                Send Message
+                {submitting ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                    Sending...
+                  </span>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
          </div>

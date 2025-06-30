@@ -125,17 +125,46 @@ const BlogSingle = () => {
             <div className="prose max-w-none">
               <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
               <span className="text-gray-500 text-sm block mb-4">{new Date(blog.createdAt).toLocaleDateString()}</span>
-              <div className="mb-4 text-gray-700" dangerouslySetInnerHTML={{ __html: blog.content }} />
+              {/* Enhanced paragraph-based rendering for blog content */}
+              <div className="mb-4  bg-white/60   rounded-lg p-6 shadow-sm">
+                {(() => {
+                  // Split content into paragraphs
+                  const content = blog.content || '';
+                  // Match <p>...</p> blocks
+                  const paragraphRegex = /<p>([\s\S]*?)<\/p>/gi;
+                  const paragraphs = [];
+                  let match;
+                  while ((match = paragraphRegex.exec(content)) !== null) {
+                    paragraphs.push(match[1]);
+                  }
+                  // If no <p> found, fallback to raw content
+                  if (paragraphs.length === 0) {
+                    return (
+                      <p className="text-lg text-gray-800 mb-6 leading-relaxed  p-4 ">
+                        <span dangerouslySetInnerHTML={{ __html: content }} />
+                      </p>
+                    );
+                  }
+                  return paragraphs.map((para, idx) => (
+                    <p
+                      key={idx}
+                      className="text-lg text-gray-800 mb-6 leading-relaxed not-only-of-type:p-4 "
+                    >
+                      <span dangerouslySetInnerHTML={{ __html: para }} />
+                    </p>
+                  ));
+                })()}
+              </div>
               {/* Tags */}
-           <div>
-            <p>Tags</p>
+           {/* <div>
+               <p>Tags</p>
                <div className="flex flex-wrap gap-2 mt-8">
                 
                 {blog.tags && blog.tags.map((tag) => (
                   <span key={tag} className="px-3 py-1 bg-gray-200 rounded-full text-sm">{tag}</span>
                 ))}
               </div>
-           </div>
+           </div> */}
             </div>
             {/* Comments and form can remain as static or be removed if not needed */}
           </div>

@@ -74,7 +74,7 @@ const Resources = () => {
               {(!group.resources || group.resources.length === 0) ? (
                 <div className="text-gray-400 mb-8">No resources in this group.</div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                   {group.resources.map(resource => (
                     <ResourceCard
                       key={resource.id}

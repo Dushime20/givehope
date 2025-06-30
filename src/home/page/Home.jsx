@@ -9,6 +9,9 @@ import Features from './home/Features';
 import Counter from './home/Counter';
 import Hero from './home/Hero';
 import Partner from './home/Partner';
+import Contact from './Contact';
+import HomeBlog from './home/homeBlog';
+import HomeProject from './home/HomeProject';
 
 const Home = () => {
   return (
@@ -21,20 +24,23 @@ const Home = () => {
       {/* Counter Section */}
       <Counter/>
 
-      {/* Features Section */}
-     <Features/>
-     <Partner/>
+     
 
-      {/* Fundraisers Section */}
-      <Foundraisers/>
+      {/* Features Section */}
+     <HomeProject/>
+     
+
+     
 
   
 
       {/* Latest News Section */}
-    <LatestNew/>
+    <HomeBlog/>
+
+     <Partner/>
 
       {/* Volunteer Form Section */}
-     <VolunteerForm/>
+    <Contact/>
 
       
 

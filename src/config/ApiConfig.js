@@ -551,7 +551,7 @@ class ApiService {
   /** Add suggestion */
   static async addSuggestion(formData) {  
     try {
-      const response = await axios.post(`${this.BASE_URL}/suggestion`, formData, {
+      const response = await axios.post(`${this.BASE_URL}/suggestions`, formData, {
         headers: this.getHeader(formData), // Pass formData here
       });
       return response.data;
@@ -564,7 +564,7 @@ class ApiService {
   /** Get all suggestions */
   static async getAllSuggestions() {
     try {
-      const response = await axios.get(`${this.BASE_URL}/suggestion/admin`, {
+      const response = await axios.get(`${this.BASE_URL}/suggestions/admin`, {
         headers: this.getHeader(),
       });
       return response.data;
@@ -578,7 +578,7 @@ class ApiService {
   /** Get suggestion by ID */
   static async getSuggestionById(id) {
     try {
-      const response = await axios.get(`${this.BASE_URL}/suggestion/admin/${id}`, {
+      const response = await axios.get(`${this.BASE_URL}/suggestions/admin/${id}`, {
         headers: this.getHeader(),
       });
       return response.data;
@@ -589,7 +589,7 @@ class ApiService {
   }
 
   /** Update suggestion by ID */
-  static async updateSuggestionById(id, updatedData) {  
+  static async updateSuggestionStatusById(id, updatedData) {  
     try {
       const response = await axios.patch(`${this.BASE_URL}/suggestion/admin/${id}`, updatedData, {
         headers: this.getHeader(updatedData), // Pass data here
