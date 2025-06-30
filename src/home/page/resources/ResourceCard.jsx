@@ -16,25 +16,16 @@ const ResourceCard = ({ id, type, title, description, link }) => {
         <h3 className="text-xl font-semibold">{title}</h3>
       </div>
       <p className="text-gray-700 mb-4">{description}</p>
-      {type === "pdf" && (
-        <>
-          <Link
-            to={`/resources/view/${id}`}
-            className="inline-block text-blue-600 border border-blue-500 hover:bg-blue-100 transition px-4 py-2 rounded-lg mr-2"
-          >
-            Read Now
-          </Link>
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-white bg-blue-600 hover:bg-blue-400 transition px-4 py-2 rounded-lg"
-          >
-            Download
-          </a>
-        </>
-      )}
-      {type !== "pdf" && (
+      {type === "pdf" ? (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-white bg-blue-600 hover:bg-blue-400 transition px-4 py-2 rounded-lg"
+        >
+          Read Now
+        </a>
+      ) : (
         <a
           href={link}
           target="_blank"
