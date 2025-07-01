@@ -7,6 +7,7 @@ import {
   FaClock, FaEye, FaStar, FaCalendar 
 } from 'react-icons/fa';
 import VideoSection from "./VideoSection";
+import VideoCardInline from "./VideoCardInline";
 
 const Videos = () => {
   const [videos, setVideos] = useState([]);
