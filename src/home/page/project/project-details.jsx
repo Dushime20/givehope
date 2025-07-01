@@ -123,8 +123,8 @@ export default function ProjectDetail() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
               <div className="relative">
                 <img
                   src={project.imageUrl || '/src/assets/images/placeholder.jpg'}
@@ -154,26 +154,11 @@ export default function ProjectDetail() {
                   </Button>
                 </div>
               </div>
-              
-              <div className="p-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              <div className="p-8 space-y-8">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">
                   {project.title || 'Untitled Project'}
                 </h1>
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                  {project.description || 'No description available'}
-                </p>
-                
-                {formatTags(project.tags).length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {formatTags(project.tags).map((tag, index) => (
-                      <Badge key={index} variant="outline" className="text-sm">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                )}
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-gray-100">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-b border-gray-100 py-6">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-900">{project.beneficiaries || 0}</div>
                     <div className="text-sm text-gray-500">Beneficiaries</div>
@@ -195,45 +180,42 @@ export default function ProjectDetail() {
                     <div className="text-sm text-gray-500">Started</div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {project.targetFund > 0 && (
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
-                <h2 className="text-xl font-semibold text-gray-900 mb-6">Funding Progress</h2>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-lg font-medium text-gray-900">Progress</span>
-                    <span className="text-lg font-bold text-blue-600">
-                      {getProgressPercentage(project.raisedFund, project.targetFund)}%
-                    </span>
+                {project.targetFund > 0 && (
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Funding Progress</h2>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-lg font-medium text-gray-900">Progress</span>
+                        <span className="text-lg font-bold text-blue-600">
+                          {getProgressPercentage(project.raisedFund, project.targetFund)}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-3">
+                        <div
+                          className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all duration-500"
+                          style={{ width: `${getProgressPercentage(project.raisedFund, project.targetFund)}%` }}
+                        ></div>
+                      </div>
+                      <div className="flex justify-between text-sm text-gray-500">
+                        <span>Raised: {formatCurrency(project.raisedFund)}</span>
+                        <span>Target: {formatCurrency(project.targetFund)}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-3">
-                    <div 
-                      className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all duration-500" 
-                      style={{ width: `${getProgressPercentage(project.raisedFund, project.targetFund)}%` }}
-                    ></div>
-                  </div>
-                  <div className="flex justify-between text-sm text-gray-500">
-                    <span>Raised: {formatCurrency(project.raisedFund)}</span>
-                    <span>Target: {formatCurrency(project.targetFund)}</span>
+                )}
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-4">Project Overview</h2>
+                  <div className="prose prose-gray max-w-none">
+                    <p className="text-gray-600 leading-relaxed">
+                      {project.description || 'No detailed description available for this project.'}
+                    </p>
                   </div>
                 </div>
               </div>
-            )}
-
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Project Overview</h2>
-              <div className="prose prose-gray max-w-none">
-                <p className="text-gray-600 leading-relaxed">
-                  {project.description || 'No detailed description available for this project.'}
-                </p>
-              </div>
             </div>
           </div>
-
           <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sticky top-8">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6  top-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Project Details</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
@@ -268,8 +250,7 @@ export default function ProjectDetail() {
                 )}
               </div>
             </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 p-6">
+            <div className="bg-gradient-to-br from-blue-50  to-indigo-50 rounded-2xl border border-blue-200 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Support This Project</h3>
               <div className="space-y-3">
                 {isActive && (
@@ -283,7 +264,6 @@ export default function ProjectDetail() {
                 <Button variant="outline" className="w-full border-gray-300 text-gray-700 hover:bg-gray-50">
                 <Link to={"/contact"}>Contact us</Link>
                 </Button>
-              
               </div>
             </div>
           </div>
