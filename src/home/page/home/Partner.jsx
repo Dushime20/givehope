@@ -41,7 +41,7 @@ const Partner = () => {
                   <img
                     src={partner.imageUrl}
                     alt={partner.name}
-                    className="w-full h-32 object-contain p-4"
+                    className="w-full h-32 object-contain"
                     crossOrigin="anonymous"
                   />
                 ) : (

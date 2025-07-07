@@ -151,7 +151,7 @@ export default function ProjectsPage() {
                       e.target.src = '/src/assets/images/placeholder.jpg'
                     }}
                   />
-                  {project.isFeatured && (
+                  {/* {project.isFeatured && (
                     <Badge className="absolute top-2 right-2 bg-blue-700 text-white">
                       Featured
                     </Badge>
@@ -162,7 +162,7 @@ export default function ProjectsPage() {
                       : 'bg-gray-500 text-white'
                   }`}>
                     {new Date(project.endDate) > new Date() ? 'Active' : 'Completed'}
-                  </Badge>
+                  </Badge> */}
                 </div>
                 
                 <CardHeader>
@@ -192,16 +192,16 @@ export default function ProjectsPage() {
                   <div className="flex gap-2 pt-4">
                     <Button asChild className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
                       <Link to={`/project/${project.id}`}>
-                        Learn More
+                        Read More
                       </Link>
                     </Button>
-                    {new Date(project.endDate) > new Date() && (
+                  
                       <Button asChild className="flex-1 bg-gray-500 hover:bg-gray-400 text-white">
                         <Link to="/donate-page">
                           Donate
                         </Link>
                       </Button>
-                    )}
+                    
                   </div>
                 </CardContent>
               </Card>

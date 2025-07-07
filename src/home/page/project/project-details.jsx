@@ -306,7 +306,7 @@ export default function ProjectDetail() {
                 Support This Project
               </h3>
               <div className="space-y-3">
-                {isActive && (
+                {/* {isActive && ( */}
                   <Button
                     asChild
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white"
@@ -316,7 +316,7 @@ export default function ProjectDetail() {
                       Donate Now
                     </Link>
                   </Button>
-                )}
+                {/* )} */}
                 <Button
                   variant="outline"
                   className="w-full border-gray-300 text-gray-700 hover:bg-gray-50"
