@@ -78,7 +78,7 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen mt-8">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-8 flex flex-col md:flex-row gap-4">
+        {/* <div className="mb-8 flex flex-col md:flex-row gap-4">
           <div className="flex-1">
             <Input
               type="text"
@@ -122,7 +122,7 @@ export default function ProjectsPage() {
              filter === 'all' ? `Showing all ${filteredProjects.length} projects` :
              `Showing ${filteredProjects.length} ${filter} projects`}
           </p>
-        </div>
+        </div> */}
 
         {loading && (
           <div className="text-center py-20">

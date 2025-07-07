@@ -12,10 +12,24 @@ export default function ProjectDetail() {
   const [project, setProject] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [allProjects, setAllProjects] = useState([])
 
   useEffect(() => {
     fetchProject()
   }, [id])
+
+  useEffect(() => {
+    const fetchAllProjects = async () => {
+      try {
+        const response = await ApiService.getAllProjects();
+        // If response is an array, set directly; if wrapped in .data, use that
+        setAllProjects(Array.isArray(response) ? response : response.data || []);
+      } catch (err) {
+        console.error('Error fetching all projects:', err);
+      }
+    };
+    fetchAllProjects();
+  }, []);
 
   const fetchProject = async () => {
     setLoading(true)
@@ -145,20 +159,13 @@ export default function ProjectDetail() {
                     <Badge className="bg-blue-100 text-blue-800 border-blue-200">Featured</Badge>
                   )}
                 </div>
-                <div className="absolute top-4 right-4 flex gap-2">
-                  <Button size="sm" variant="secondary" className="bg-white/90 hover:bg-white">
-                    <Share2 className="w-4 h-4" />
-                  </Button>
-                  <Button size="sm" variant="secondary" className="bg-white/90 hover:bg-white">
-                    <Bookmark className="w-4 h-4" />
-                  </Button>
-                </div>
+               
               </div>
               <div className="p-8 space-y-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">
                   {project.title || 'Untitled Project'}
                 </h1>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-b border-gray-100 py-6">
+                {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-b border-gray-100 py-6">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-900">{project.beneficiaries || 0}</div>
                     <div className="text-sm text-gray-500">Beneficiaries</div>
@@ -202,7 +209,7 @@ export default function ProjectDetail() {
                       </div>
                     </div>
                   </div>
-                )}
+                )} */}
                 <div>
                   <h2 className="text-xl font-semibold text-gray-900 mb-4">Project Overview</h2>
                   <div className="prose prose-gray max-w-none">
@@ -266,6 +273,31 @@ export default function ProjectDetail() {
                 </Button>
               </div>
             </div>
+
+            <div className="bg-white rounded-2xl shadow-md border border-gray-200 p-6 transition hover:shadow-lg">
+  <h3 className="text-xl font-semibold text-gray-900 mb-5">What We Do</h3>
+  <ul className="space-y-3">
+    {Array.isArray(allProjects) && allProjects.length > 0 ? (
+      allProjects
+        .filter(proj => proj.id !== project.id)
+        .map((proj) => (
+          <li key={proj.id}>
+            <Link
+              to={`/project/${proj.id}`}
+              className={`block px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 hover:bg-blue-100 hover:text-blue-700 active:bg-blue-200 transition-all duration-200 shadow-sm hover:shadow-md ${
+                proj.id === project.id ? 'bg-blue-100 font-bold text-blue-700' : 'text-gray-800'
+              }`}
+            >
+              {proj.title || 'Untitled Project'}
+            </Link>
+          </li>
+        ))
+    ) : (
+      <li className="text-gray-500">No other projects available.</li>
+    )}
+  </ul>
+</div>
+
           </div>
         </div>
       </div>
