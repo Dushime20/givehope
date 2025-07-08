@@ -8,6 +8,7 @@ import { Link } from "react-router-dom"
 import { toast } from 'sonner'
 import { Toaster } from '@/components/ui/sonner'
 import ApiService from "../../config/ApiConfig"
+import Hero from "./home/Hero"
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState([])
@@ -77,6 +78,8 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen mt-8">
+        {/* Hero Section */}
+      <Hero/>
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* <div className="mb-8 flex flex-col md:flex-row gap-4">
           <div className="flex-1">

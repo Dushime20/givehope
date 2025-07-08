@@ -8,6 +8,7 @@ import {
 } from 'react-icons/fa';
 import VideoSection from "./VideoSection";
 import VideoCardInline from "./VideoCardInline";
+import Hero from "../home/Hero";
 
 const Videos = () => {
   const [videos, setVideos] = useState([]);
@@ -96,9 +97,12 @@ const Videos = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-white mt-12 min-h-screen py-8">
+    <div className="bg-gradient-to-br from-gray-50 to-white  min-h-screen py-8">
+       {/* Hero Section */}
+      <Hero/>
+
       {/* Category Pills */}
-      <div className="flex flex-wrap justify-center gap-2 mb-6">
+      <div className="flex flex-wrap justify-center gap-2 mt-4 mb-6">
         <button
           onClick={() => setSelectedCategory('all')}
           className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${

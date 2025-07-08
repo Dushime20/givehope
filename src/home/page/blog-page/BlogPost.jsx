@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ApiService from '../../../config/ApiConfig';
+import Hero from '../home/Hero';
 
 
 const BlogPost = () => {
@@ -36,8 +37,11 @@ const BlogPost = () => {
 
   return (
     <div>
-      <div className="py-16 mt-3 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <div className="py-16  bg-gray-50">
+          {/* Hero Section */}
+      <Hero/>
+        <div className="container mx-auto px-4 mt-4">
+          <h1 className='text-blue-600 text-3xl font-bold py-6'>Blogs</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.length === 0 ? (
               <div className="col-span-3 text-center text-gray-500">No blogs found.</div>

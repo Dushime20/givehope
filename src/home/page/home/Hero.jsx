@@ -43,13 +43,13 @@ const Hero = () => {
         style={{ backgroundImage: `url('${bgImage}')` }}
       >
         {/* Top Logo */}
-        <div className="absolute top-6 left-6 flex items-center space-x-3 text-white">
+        {/* <div className="absolute top-6 left-6 flex items-center space-x-3 text-white">
           <img
             src="images/Picture1.png"
             alt="LOGO"
             className="h-10 w-auto object-contain"
           />
-        </div>
+        </div> */}
 
         {/* Center Content */}
         <div className="container mx-auto px-4 h-full flex items-center justify-center">

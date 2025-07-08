@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { FaSearch } from "react-icons/fa";
 import ResourceCard from "./ResourceCard";
 import ApiService from "../../../config/ApiConfig";
+import Hero from "../home/Hero";
 
 
 const Resources = () => {
@@ -49,7 +50,11 @@ const Resources = () => {
     // };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 mt-12">
+    <div className="bg-gray-50 min-h-screen">
+      {/* Hero Section */}
+      <Hero/>
+  <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8 mt-12">
+    
       {/* Search bar */}
       <div className="max-w-md mx-auto mb-12 relative">
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -99,6 +104,8 @@ const Resources = () => {
         </div>
       )}
     </div>
+    </div>
+  
   );
 };
 
