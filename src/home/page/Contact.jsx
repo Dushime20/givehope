@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import ApiService from "../../config/ApiConfig";
 import { toast } from 'sonner';
+import Hero from "./home/Hero";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -50,8 +51,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact-section" className="py-20 px-4 bg-gradient-to-br from-blue-50 via-white to-blue-100 min-h-screen">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact-section" className=" bg-gradient-to-br from-blue-50 via-white to-blue-100 min-h-screen">
+      <Hero/>
+      <div className="max-w-6xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14 mt-20">
           <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4 font-serif tracking-tight">Contact Us</h2>
           <p className="text-blue-700 max-w-2xl mx-auto text-lg font-light">
