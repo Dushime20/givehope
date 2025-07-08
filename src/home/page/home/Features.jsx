@@ -20,7 +20,7 @@ const FeatureCard = ({ Icon, title, description, link, linkText }) => {
 const Features = () => {
   return (
     <div className="py-16 bg-gray-50">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 font-serif tracking-tight">ABOUT US</h2>
+      <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-4 font-serif tracking-tight">ABOUT US</h2>
 
           <div className="w-16 h-1 bg-blue-600 mx-auto mt-2 mb-4 rounded"></div>
       <div className="container mx-auto px-4">
