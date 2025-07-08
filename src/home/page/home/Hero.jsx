@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 
 import ApiService from '../../../config/ApiConfig';
+import { Link } from 'react-router-dom';
 
 const DEFAULT_BG = "images/bg_1.jpg";
 
@@ -76,12 +77,12 @@ const Hero = () => {
               </button>
 
               {/* Donate Now Button */}
-              <a
+              <Link
                 href="/donate"
                 className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-400 transition"
               >
                 Donate Now
-              </a>
+              </Link>
             </div>
           </div>
         </div>
