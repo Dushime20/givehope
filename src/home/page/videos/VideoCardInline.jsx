@@ -42,7 +42,7 @@ const VideoCardInline = ({ id, url, title, type, isFeatured, createdAt, updatedA
 
   return (
     <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-gray-100 relative">
-      {isFeatured && (
+      {/* {isFeatured && (
         <div className="absolute top-4 right-4 z-10">
           <div className="bg-blue-400 text-blue-900 px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
             <FaStar className="text-xs" />
@@ -56,7 +56,7 @@ const VideoCardInline = ({ id, url, title, type, isFeatured, createdAt, updatedA
           <span>{category.icon}</span>
           <span>{category.name}</span>
         </div>
-      </div>
+      </div> */}
 
       <div className="relative overflow-hidden">
         {youtubeId ? (
