@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ApiService from '../../../config/ApiConfig';
+import Hero from '../home/Hero';
 
 
 const ImageGalleryPage = () => {
@@ -44,7 +45,10 @@ const ImageGalleryPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 mt-15 pb-6 ">
-      <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Our Gallery</h2>
+      {/* Hero Section */}
+      <Hero/>
+      {/* Gallery Title */}
+      <h2 className="text-3xl font-bold text-center mt-4 mb-8 text-gray-800">Our Gallery</h2>
       {/* Image Grid */}
       <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 ">
         {images.map((image) => (
