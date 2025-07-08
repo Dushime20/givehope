@@ -10,7 +10,7 @@ const ResourceCard = ({ id, type, title, description, link }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-xl p-6 max-w-sm w-full">
+    <div className="bg-white shadow-lg rounded-xl p-6 w-full">
       <div className="flex items-center gap-4 mb-4">
         {iconMap[type]}
         <h3 className="text-xl font-semibold">{title}</h3>
