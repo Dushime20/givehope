@@ -65,7 +65,7 @@ function App() {
           <Route path="/blog" element={<BlogPost />} />
           <Route path="/blog-single/:id" element={<BlogSingle />} />
           <Route path="/donate" element={<Donate />} />
-          <Route path="/donate-page" element={<DonatePage />} />
+         
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/resources" element={<Resources />} />
