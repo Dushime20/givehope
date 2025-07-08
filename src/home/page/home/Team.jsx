@@ -62,7 +62,7 @@ const Team = () => {
       <div className="max-w-7xl mx-auto py-5 px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 font-serif tracking-tight">OUR TEAM</h2>
-          <span className="text-blue-600 font-semibold uppercase tracking-widest">Meet the Board</span>
+
           <div className="w-16 h-1 bg-blue-600 mx-auto mt-2 mb-4 rounded"></div>
           <p className="text-gray-500 max-w-2xl mx-auto text-base font-light">
             Our leadership and staff are dedicated to empowering the deaf community and driving our mission forward with passion and professionalism.
