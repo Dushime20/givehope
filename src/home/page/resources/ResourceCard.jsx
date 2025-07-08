@@ -13,7 +13,7 @@ const ResourceCard = ({ id, type, title, description, link }) => {
     <div className="bg-white shadow-lg rounded-xl p-6 w-full">
       <div className="flex items-center gap-4 mb-4">
         {iconMap[type]}
-        <h3 className="text-xl font-semibold">{title}</h3>
+        <h3 className="text-xl  font-semibold">{title}</h3>
       </div>
       <p className="text-gray-700 mb-4">{description}</p>
       {type === "pdf" ? (

@@ -75,7 +75,7 @@ const Resources = () => {
         <div className="space-y-12">
           {filteredGroups.map(group => (
             <div key={group.id}>
-              <h2 className="text-2xl font-bold text-blue-700 mb-6">{group.name}</h2>
+              <h2 className="text-2xl text-center font-bold text-blue-700 mb-6">{group.name}</h2>
               {(!group.resources || group.resources.length === 0) ? (
                 <div className="text-gray-400 mb-8">No resources in this group.</div>
               ) : (
