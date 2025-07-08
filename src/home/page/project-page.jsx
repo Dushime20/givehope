@@ -176,7 +176,7 @@ export default function ProjectsPage() {
                     {project.description || 'No description available'}
                   </p>
                   
-                  <div className="flex flex-wrap gap-1">
+                  {/* <div className="flex flex-wrap gap-1">
                     {formatTags(project.tags).slice(0, 3).map((tag, tagIndex) => (
                       <Badge key={tagIndex} variant="secondary" className="text-xs">
                         {tag}
@@ -187,7 +187,7 @@ export default function ProjectsPage() {
                         +{formatTags(project.tags).length - 3} more
                       </Badge>
                     )}
-                  </div>
+                  </div> */}
                   
                   <div className="flex gap-2 pt-4">
                     <Button asChild className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">

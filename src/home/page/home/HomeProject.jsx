@@ -94,7 +94,7 @@ export default function HomeProject() {
                       e.target.src = '/src/assets/images/placeholder.jpg'
                     }}
                   />
-                  {project.isFeatured && (
+                  {/* {project.isFeatured && (
                     <Badge className="absolute top-2 right-2 bg-blue-700 text-white">
                       Featured
                     </Badge>
@@ -105,7 +105,7 @@ export default function HomeProject() {
                       : 'bg-gray-500 text-white'
                   }`}>
                     {new Date(project.endDate) > new Date() ? 'Active' : 'Completed'}
-                  </Badge>
+                  </Badge> */}
                 </div>
                 
                 <CardHeader>
@@ -120,7 +120,7 @@ export default function HomeProject() {
                   </p>
                   
                   <div className="flex flex-wrap gap-1">
-                    {formatTags(project.tags).slice(0, 3).map((tag, tagIndex) => (
+                    {/* {formatTags(project.tags).slice(0, 3).map((tag, tagIndex) => (
                       <Badge key={tagIndex} variant="secondary" className="text-xs">
                         {tag}
                       </Badge>
@@ -129,7 +129,7 @@ export default function HomeProject() {
                       <Badge variant="outline" className="text-xs">
                         +{formatTags(project.tags).length - 3} more
                       </Badge>
-                    )}
+                    )} */}
                   </div>
                   
                   <div className="flex gap-2 pt-4">
@@ -138,13 +138,13 @@ export default function HomeProject() {
                         Learn More
                       </Link>
                     </Button>
-                    {new Date(project.endDate) > new Date() && (
+                    {/* {new Date(project.endDate) > new Date() && ( */}
                       <Button asChild className="flex-1 bg-gray-500 hover:bg-gray-400 text-white">
                         <Link to="/donate-page">
                           Donate
                         </Link>
                       </Button>
-                    )}
+                    {/* )} */}
                   </div>
                 </CardContent>
               </Card>
