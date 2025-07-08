@@ -58,7 +58,7 @@ export default function HomeProject() {
 
         {/* Header section */}
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">Projects</h2>
+          <h2 className="text-3xl font-bold text-gray-900">What we do</h2>
            <Link
                       to="/projects"
                       className="text-blue-600 hover:text-blue-800 font-medium"

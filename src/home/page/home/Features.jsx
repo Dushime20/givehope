@@ -28,7 +28,7 @@ const Features = () => {
             Icon={IoBulbOutline}
             title="Our Mission"
             description="RNADW exists to defend the rights of Deaf women and promote their health and socio-economic welfare."
-            link="/mission"
+            link="/projects"
             linkText="Learn More"
           />
 
@@ -36,7 +36,7 @@ const Features = () => {
             Icon={IoPeopleOutline}
             title="Our Vision"
             description="A society which respects the basic rights of Deaf Women and girls, considers as priority their education and welfare, and in which they are integrated with equal opportunities to actively participate in national development."
-            link="/volunteer"
+            link="/projects"
             linkText="Learn More"
           />
 

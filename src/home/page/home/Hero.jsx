@@ -1,15 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 
+import ApiService from '../../../config/ApiConfig';
+
+const DEFAULT_BG = "images/bg_1.jpg";
+
 const Hero = () => {
-  const [showVideo, setShowVideo] = useState(false); // controls popup
+  const [showVideo, setShowVideo] = useState(false);
+  const [bgImage, setBgImage] = useState(DEFAULT_BG);
+
+  useEffect(() => {
+    const fetchPrimaryBg = async () => {
+      try {
+        const response = await ApiService.getAllMediaPhotos();
+        console.log("Fetched media photos:", response);
+        const items = response.items || response;
+        const primary = Array.isArray(items)
+          ? items.find(img => img.type === 'PRIMARY' && img.url)
+          : null;
+
+        if (primary && primary.url) {
+          setBgImage(primary.url);
+        } else {
+          // If no primary image found, fallback to default
+          setBgImage(DEFAULT_BG);
+        }
+      } catch (err) {
+        console.error("Failed to fetch primary background image:", err);
+        setBgImage(DEFAULT_BG);
+      }
+    };
+
+    fetchPrimaryBg();
+  }, []);
+
 
   return (
     <div className="relative bg-cover bg-center h-[600px]">
       {/* Background Overlay */}
       <div
         className="absolute inset-0 bg-opacity-50"
-        style={{ backgroundImage: "url('images/bg_1.jpg')" }}
+        style={{ backgroundImage: `url('${bgImage}')` }}
       >
         {/* Top Logo */}
         <div className="absolute top-6 left-6 flex items-center space-x-3 text-white">
