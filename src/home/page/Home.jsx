@@ -1,17 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import VolunteerForm from './home/VolunteerForm';
-import LatestNew from './home/LatestNew';
-import SuccessStory from './home/SuccessStory';
-import LastDonation from './home/LastDonation';
-import Foundraisers from './home/Foundraisers';
-import Features from './home/Features';
+
 import Counter from './home/Counter';
 import Hero from './home/Hero';
 import Partner from './home/Partner';
-import Contact from './Contact';
+
 import HomeBlog from './home/homeBlog';
 import HomeProject from './home/HomeProject';
+import HomeContact from './home/homeContact';
 
 const Home = () => {
   return (
@@ -40,7 +36,7 @@ const Home = () => {
      <Partner/>
 
       {/* Volunteer Form Section */}
-    <Contact/>
+    <HomeContact/>
 
       
 
